@@ -9,19 +9,16 @@ const Navigation = () => {
   }, [showNav]);
   return (
     <nav>
-      <NavIcon
-        className="fixed top-2 nav_span w-8 cursor-pointer text-2xl z-20 flex-row	justify-center items-center	border-solid border-black"
-        onClick={() => setShowNav(!showNav)}
-      >
+      <NavIconWrapper onClick={() => setShowNav(!showNav)}>
         {showNav ? <div>&#10005;</div> : <PersonalIcon>JC</PersonalIcon>}
-      </NavIcon>
+      </NavIconWrapper>
       <NavItemsWrapper
         right={showNav ? 0 : 100}
         className={`navigation sm:w-1/2 sm:max-w-md bg-white z-10 rounded-bl-3xl fixed w-full h-screen`}
       >
         <NavItem>Home</NavItem>
-        <NavItem>Contact</NavItem>
         <NavItem>Work</NavItem>
+        <NavItem>Contact</NavItem>
       </NavItemsWrapper>
       {showNav ? <Modal onClick={() => setShowNav(false)} /> : null}
     </nav>
@@ -31,19 +28,19 @@ const Navigation = () => {
 export default Navigation;
 
 // styles
-const NavIcon = styled.div`
+const NavIconWrapper = styled.div`
   position: fixed;
+  top: 1rem;
+  z-index: 20;
   left: calc(100% - 3rem);
+  font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
-`;
-const NavItemsWrapper = styled.div`
-  right: ${(props) => props.right};
-  transition-duration: 0.4s;
+  border: 2px solid white;
 `;
 const PersonalIcon = styled.div`
   width: 2rem;
@@ -55,6 +52,10 @@ const PersonalIcon = styled.div`
   align-items: center;
   border-radius: 50%;
   /* border: 3px solid #fff; */
+`;
+const NavItemsWrapper = styled.div`
+  right: ${(props) => props.right};
+  transition-duration: 0.4s;
 `;
 const NavItem = styled.p`
   &:hover {
