@@ -6,7 +6,7 @@ import Statement from "./Components/Intro/Statement";
 import List from "./Components/Intro/List";
 import Navigation from "./Components/Navigation";
 import hero from "./resources/hero.svg";
-import code from "./resources/bg.svg";
+import code from "./resources/bg.png";
 
 function App() {
   const [developerItems] = useState([
@@ -15,22 +15,24 @@ function App() {
   ]);
 
   return (
-    <AppWrapper className="App ">
-      <Container className="" bg={code}>
+    <AppWrapper className="App bg-gray-700">
+      <Container bg={code}>
         <Navigation />
         <HeroWrapper bg={hero}>
           <H1 className="lip-in-hor-bottom ">I'm Jonathan</H1>
           <H3>Full Stack Web Developer</H3>
         </HeroWrapper>
-        <Statement text="Developer">
-          <List items={developerItems} />
-        </Statement>
-        <Statement text="Designer">
-          <List items={developerItems} />
-        </Statement>
-        <Statement text="UX/UI">
-          <List items={developerItems} />
-        </Statement>
+        <StatementWrapper>
+          <Statement text="Developer">
+            <List items={developerItems} />
+          </Statement>
+          <Statement text="Designer">
+            <List items={developerItems} />
+          </Statement>
+          <Statement text="UX/UI">
+            <List items={developerItems} />
+          </Statement>
+        </StatementWrapper>
       </Container>
     </AppWrapper>
   );
@@ -62,13 +64,13 @@ const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* animation: slideRight 0.5s linear forwards; */
+  animation: slideRight 0.8s linear forwards;
   /* border: 2px solid white; */
 
   @keyframes slideRight {
     from {
       opacity: 0;
-      left: -20%;
+      left: -30%;
     }
   }
 
@@ -104,4 +106,9 @@ const H3 = styled.h3`
   @media ${device.tabletS} {
     background-color: transparent;
   }
+`;
+const StatementWrapper = styled.div`
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  background-color: #ddd;
 `;
