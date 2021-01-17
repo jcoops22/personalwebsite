@@ -59,7 +59,8 @@ const HeroWrapper = styled.div`
   position: relative;
   left: 0;
   width: 100%;
-  height: 80vh;
+  /* height: 80vh; */
+  height: 611px;
   margin-bottom: 8rem;
   padding-bottom: 1.5rem;
   background-image: url(${(props) => props.bg});
