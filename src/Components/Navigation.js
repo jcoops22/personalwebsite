@@ -93,14 +93,7 @@ const NavItem = styled.p`
   letter-spacing: 0.05em;
   cursor: pointer;
   animation-delay: ${(props) => props.delay};
-  /* animation: popIn 0.4s ease-in forwards; */
   /* border: 1px solid red; */
-
-  @keyframes popIn {
-    to {
-      margin-top: 0.7rem;
-    }
-  }
 `;
 const Modal = styled.div`
   display: none;

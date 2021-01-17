@@ -6,13 +6,15 @@ import Statement from "./Components/Intro/Statement";
 import List from "./Components/Intro/List";
 import Navigation from "./Components/Navigation";
 import hero from "./resources/hero.svg";
-import code from "./resources/bg.png";
 
 function App() {
   const [developerItems] = useState([
     "Building full stack applications with modern JavaScript frameworks",
     "Backend proficiencies with NodeJS, Ruby and Python",
   ]);
+  const [code] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1610868877/Screen_Shot_2021-01-17_at_12.32.51_AM_avm92z.png"
+  );
 
   return (
     <AppWrapper className="App bg-gray-700">
@@ -47,6 +49,7 @@ const Container = styled.div`
   width: 100%;
   overflow: hidden;
   padding-top: 5rem;
+  padding-left: -1rem;
   background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
   background-size: cover;
@@ -58,6 +61,7 @@ const HeroWrapper = styled.div`
   width: 100%;
   height: 80vh;
   margin-bottom: 8rem;
+  padding-bottom: 1.5rem;
   background-image: url(${(props) => props.bg});
   background-position: right;
   background-repeat: no-repeat;
@@ -91,6 +95,8 @@ const H1 = styled.h1`
   /* border: 1px solid red; */
 
   @media ${device.tabletS} {
+    font-size: 3.7rem;
+    padding-right: 2rem;
     background-color: transparent;
   }
 `;
