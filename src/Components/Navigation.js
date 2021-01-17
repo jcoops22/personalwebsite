@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { device } from "../resources/mediaquery";
 
 const Navigation = () => {
   const [showNav, setShowNav] = useState(false);
@@ -9,18 +10,26 @@ const Navigation = () => {
   }, [showNav]);
   return (
     <nav>
-      <NavIconWrapper onClick={() => setShowNav(!showNav)}>
-        {showNav ? <div>&#10005;</div> : <PersonalIcon>JC</PersonalIcon>}
+      <NavIconWrapper
+        onClick={() => setShowNav(!showNav)}
+        bg={showNav ? "#ddd" : "#f05454"}
+      >
+        {showNav ? <XIcon>&#10005;</XIcon> : <PersonalIcon>JC</PersonalIcon>}
       </NavIconWrapper>
       <NavItemsWrapper
         right={showNav ? 0 : 100}
-        className={`navigation sm:w-1/2 sm:max-w-md bg-white z-10 rounded-bl-3xl fixed w-full h-screen`}
+        className={`navigation sm:w-1/2 sm:max-w-md z-20 rounded-bl-3xl fixed w-full h-screen`}
       >
         <NavItem>Home</NavItem>
         <NavItem>Work</NavItem>
         <NavItem>Contact</NavItem>
       </NavItemsWrapper>
-      {showNav ? <Modal onClick={() => setShowNav(false)} /> : null}
+      {showNav ? (
+        <Modal
+          onClick={() => setShowNav(false)}
+          bg={showNav ? "rgba(0,0,0, 0.5)" : "rgba(0,0,0,0,)"}
+        />
+      ) : null}
     </nav>
   );
 };
@@ -31,7 +40,7 @@ export default Navigation;
 const NavIconWrapper = styled.div`
   position: fixed;
   top: 1rem;
-  z-index: 20;
+  z-index: 30;
   left: calc(100% - 3rem);
   font-size: 1.5rem;
   width: 2.5rem;
@@ -40,7 +49,9 @@ const NavIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
+  transition-duration: 0.4s;
+  background-color: ${(props) => props.bg};
+  border: 2px solid #ddd;
 `;
 const PersonalIcon = styled.div`
   width: 2rem;
@@ -53,15 +64,19 @@ const PersonalIcon = styled.div`
   border-radius: 50%;
   /* border: 3px solid #fff; */
 `;
+const XIcon = styled.div`
+  color: #f05454;
+`;
 const NavItemsWrapper = styled.div`
   right: ${(props) => props.right};
+  background-color: #ddd;
   transition-duration: 0.4s;
 `;
 const NavItem = styled.p`
   &:hover {
     opacity: 0.6;
   }
-  color: #db2777;
+  color: #f05454;
   font-size: 2rem;
   margin: 0.7rem 0;
   margin-top: 0;
@@ -77,11 +92,18 @@ const NavItem = styled.p`
   }
 `;
 const Modal = styled.div`
-  height: 100vh;
-  width: 100vw;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  transition-duration: 1.4s;
+  background-color: ${(props) => props.bg};
   /* background-color: black; */
+
+  @media ${device.tabletS} {
+    display: initial;
+  }
 `;
