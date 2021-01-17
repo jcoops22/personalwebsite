@@ -20,9 +20,19 @@ const Navigation = () => {
         right={showNav ? 0 : 100}
         className={`navigation sm:w-1/2 sm:max-w-md z-20 rounded-bl-3xl fixed w-full h-screen`}
       >
-        <NavItem>Home</NavItem>
-        <NavItem>Work</NavItem>
-        <NavItem>Contact</NavItem>
+        {showNav ? (
+          <div>
+            <NavItem delay={"0.1s"} className="tilt-in-right-1">
+              Home
+            </NavItem>
+            <NavItem delay={"0.2s"} className="tilt-in-right-1">
+              Work
+            </NavItem>
+            <NavItem delay={"0.3s"} className="tilt-in-right-1">
+              Contact
+            </NavItem>
+          </div>
+        ) : null}
       </NavItemsWrapper>
       {showNav ? (
         <Modal
@@ -82,7 +92,8 @@ const NavItem = styled.p`
   margin-top: 0;
   letter-spacing: 0.05em;
   cursor: pointer;
-  animation: popIn 0.4s ease-in forwards;
+  animation-delay: ${(props) => props.delay};
+  /* animation: popIn 0.4s ease-in forwards; */
   /* border: 1px solid red; */
 
   @keyframes popIn {
