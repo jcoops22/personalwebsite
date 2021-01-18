@@ -64,7 +64,7 @@ const StatementsWrapper = () => {
     {
       name: "Knowledge of Design Flows and UX/UI best practices",
       icon:
-        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945450/New%20Portfolio%20Site/Icons/UX/023-login_zqrzrz.svg",
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610951234/New%20Portfolio%20Site/Icons/UX/049-workflow_tfhix8.svg",
     },
   ]);
 
