@@ -47,6 +47,7 @@ const HeroWrapper = styled.div`
   }
 `;
 const H1 = styled.h1`
+  min-height: 5.5rem;
   font-size: 3rem;
   color: #f05454;
   font-weight: 600;

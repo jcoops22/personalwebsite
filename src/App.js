@@ -8,7 +8,7 @@ import StatementsWrapper from "./Components/Intro/StatementsWrapper";
 
 function App() {
   const [code] = useState(
-    "https://res.cloudinary.com/drucvvo7f/image/upload/v1610868877/New%20Portfolio%20Site/Screen_Shot_2021-01-17_at_12.32.51_AM_avm92z.png"
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1610949169/New%20Portfolio%20Site/Screen_Shot_2021-01-17_at_10.37_1_1_1_kkynsh.jpg"
   );
 
   return (
@@ -32,8 +32,12 @@ const Container = styled.div`
   overflow: hidden;
   padding-top: 5rem;
   padding-left: -1rem;
-  background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: top;
   /* border: 1px solid red; */
+
+  @media ${device.tabletS} {
+    background-image: url(${(props) => props.bg});
+  }
 `;

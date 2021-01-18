@@ -17,35 +17,61 @@ const StatementsWrapper = () => {
   const [developerItems] = useState([
     {
       name:
-        "Building full stack applications with modern JavaScript frameworks",
-      icon: "",
+        "Bring applications to life with modern JavaScript frameworks such as ReactJS and VueJS",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/005-code_rjnkga.svg",
     },
     {
-      name: "Backend proficiencies with NodeJS, Ruby and Python",
-      icon: "",
+      name:
+        "Build API's, connect databases and serve files with NodeJS and popular frameworks such as Express",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/002-cloud_computing_gayk2z.svg",
+    },
+    {
+      name: "NodeJS, Python and Ruby (Ruby on Rails)",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/012-files_tl7jub.svg",
+    },
+    {
+      name: "MongoDB, Firebase CloudStore, Postgress, SQL",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/007-database_oezqwk.svg",
     },
   ]);
   const [designerItems] = useState([
     {
-      name:
-        "Building full stack applications with modern JavaScript frameworks",
-      icon: "",
+      name: "Expert styling with CSS3 and modern CSS frameworks",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944888/New%20Portfolio%20Site/Icons/UX/017-homepage_bgmn0q.svg",
     },
-    { name: "Backend proficiencies with NodeJS, Ruby and Python", icon: "" },
+    {
+      name: "TailwindCSS, Bootstrap, SASS, Styled Components",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944933/New%20Portfolio%20Site/Icons/UX/024-maintenance_j28l1t.svg",
+    },
+    {
+      name: "Figma, Trello, Agile",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944933/New%20Portfolio%20Site/Icons/UX/022-layout_ao8q5m.svg",
+    },
   ]);
   const [uxItems] = useState([
     {
-      name:
-        "Building full stack applications with modern JavaScript frameworks",
-      icon: "",
+      name: "Five years of client side software experience",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945450/New%20Portfolio%20Site/Icons/UX/023-login_zqrzrz.svg",
     },
-    { name: "Backend proficiencies with NodeJS, Ruby and Python", icon: "" },
+    {
+      name: "Knowledge of Design Flows and UX/UI best practices",
+      icon:
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945450/New%20Portfolio%20Site/Icons/UX/023-login_zqrzrz.svg",
+    },
   ]);
 
   return (
     <Wrapper>
       <CardWrapper bg="#ddd">
-        <Header text={"What I Do"} invert={true} />
+        <Header text={"What I do"} invert={true} />
         <Card icon={devIcon} header={"Develop"} list={developerItems} />
       </CardWrapper>
       <CardWrapper bg="#30475e">
@@ -58,7 +84,7 @@ const StatementsWrapper = () => {
         />
       </CardWrapper>
       <CardWrapper bg="#ddd">
-        <Header text={"What I Bring"} invert={true} />
+        <Header text={"What I bring"} invert={true} />
         <Card icon={uxIcon} header={"UX/UI"} list={uxItems} />
       </CardWrapper>
     </Wrapper>
@@ -76,13 +102,12 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const CardWrapper = styled.div`
-  height: 550px;
+  min-height: 800px;
   width: 100%;
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.bg};
-  border: 1px solid green;
+  /* border: 1px solid green; */
 `;
