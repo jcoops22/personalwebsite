@@ -76,6 +76,7 @@ const PersonalIcon = styled.div`
 `;
 const XIcon = styled.div`
   color: #f05454;
+  font-size: 2rem;
 `;
 const NavItemsWrapper = styled.div`
   right: ${(props) => props.right};
