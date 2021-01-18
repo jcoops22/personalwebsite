@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { device } from "../resources/mediaquery";
+import { device } from "../../resources/mediaquery";
 
 const Navigation = () => {
   const [showNav, setShowNav] = useState(false);
@@ -23,13 +24,13 @@ const Navigation = () => {
         {showNav ? (
           <div>
             <NavItem delay={"0.1s"} className="tilt-in-right-1">
-              Home
+              <Link to="/">Home</Link>
             </NavItem>
             <NavItem delay={"0.2s"} className="tilt-in-right-1">
-              Work
+              <Link to="/work">Work</Link>
             </NavItem>
             <NavItem delay={"0.3s"} className="tilt-in-right-1">
-              Contact
+              <Link to="/contact">Contact</Link>
             </NavItem>
           </div>
         ) : null}

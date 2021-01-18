@@ -18,8 +18,8 @@ export default Hero;
 const HeroWrapper = styled.div`
   position: relative;
   left: 0;
+  top: 0;
   width: 100%;
-  /* height: 80vh; */
   height: 611px;
   margin-bottom: 8rem;
   padding-bottom: 1.9rem;
@@ -29,13 +29,13 @@ const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: slideRight 0.8s linear forwards;
+  animation: slideRight 0.8s cubic-bezier(0.76, 0.13, 0.12, 0.92) forwards;
   /* border: 2px solid white; */
 
   @keyframes slideRight {
     from {
       opacity: 0;
-      left: -30%;
+      top: 50px;
     }
   }
 
