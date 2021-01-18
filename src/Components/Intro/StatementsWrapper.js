@@ -6,7 +6,7 @@ import Header from "../Shared/Header";
 
 const StatementsWrapper = () => {
   const [devIcon] = useState(
-    "https://res.cloudinary.com/drucvvo7f/image/upload/v1610933666/New%20Portfolio%20Site/Icons/004-code_jzojgv.svg"
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1610933891/New%20Portfolio%20Site/Icons/006-web_coding_wqe6qb.svg"
   );
   const [designIcon] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1610934029/New%20Portfolio%20Site/Icons/010-device_ausdx0.svg"
@@ -42,17 +42,17 @@ const StatementsWrapper = () => {
     {
       name: "Expert styling with CSS3 and modern CSS frameworks",
       icon:
-        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944888/New%20Portfolio%20Site/Icons/UX/017-homepage_bgmn0q.svg",
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945027/New%20Portfolio%20Site/Icons/Design/017-homepage_zrqkcy.svg",
     },
     {
       name: "TailwindCSS, Bootstrap, SASS, Styled Components",
       icon:
-        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944933/New%20Portfolio%20Site/Icons/UX/024-maintenance_j28l1t.svg",
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945027/New%20Portfolio%20Site/Icons/Design/024-maintenance_twsymo.svg",
     },
     {
       name: "Figma, Trello, Agile",
       icon:
-        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944933/New%20Portfolio%20Site/Icons/UX/022-layout_ao8q5m.svg",
+        "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945028/New%20Portfolio%20Site/Icons/Design/022-layout_isfu9m.svg",
     },
   ]);
   const [uxItems] = useState([
