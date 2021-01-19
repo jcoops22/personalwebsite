@@ -35,14 +35,21 @@ export const designerItemsvar = [
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945027/New%20Portfolio%20Site/Icons/Design/017-homepage_zrqkcy.svg",
   },
   {
-    name: "TailwindCSS, Bootstrap, SASS, Styled Components",
+    name: "Experience with TailwindCSS, Bootstrap, SASS, Styled Components",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945027/New%20Portfolio%20Site/Icons/Design/024-maintenance_twsymo.svg",
   },
   {
-    name: "Figma, Trello, Agile",
+    name:
+      "Use of design wireframing tools like Figma and Sketch as well as collaborative tool such as Trello",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945028/New%20Portfolio%20Site/Icons/Design/022-layout_isfu9m.svg",
+  },
+  {
+    name:
+      "Impliment Agile methodologies throughout project development lifecycle",
+    icon:
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611003126/New%20Portfolio%20Site/Icons/Design/029-network_jwrdbk.svg",
   },
 ];
 export const uxItemsvar = [

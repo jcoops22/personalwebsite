@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 
 const Card = ({ header, list, icon, invert }) => {
+  const [ref, setRef] = useState(null);
+
+  const card = useRef();
+
+  useEffect(() => {
+    setRef(card.current);
+
+    console.log(card.current);
+    let devObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].intersectionRatio > 0) {
+          if (ref) {
+            ref.classList.add("tilt-in-right-1");
+          }
+        }
+      },
+      { rootMargin: "-100px" }
+    );
+    devObserver.observe(card.current);
+  }, [ref]);
   return (
-    <Wrapper className="sm:shadow-lg" color={invert ? "#ddd" : "222831"}>
+    <Wrapper
+      className="sm:shadow-lg"
+      color={invert ? "#ddd" : "222831"}
+      ref={card}
+    >
       <Header>
         <img src={icon} alt="header" /> <h1>{header}</h1>
       </Header>
@@ -34,10 +58,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
+  opacity: 0;
+  animation-delay: 0.2s;
   /* border: 1px solid blue; */
 
   img {
     width: 5rem;
+    /* border: 1px solid blue; */
   }
 
   ul {
@@ -77,5 +104,6 @@ const Header = styled.div`
     color: #f05454;
     font-size: 3rem;
     padding-left: 1rem;
+    /* border: 1px solid red; */
   }
 `;
