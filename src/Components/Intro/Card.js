@@ -4,13 +4,11 @@ import { device } from "../../resources/mediaquery";
 
 const Card = ({ header, list, icon, invert }) => {
   const [ref, setRef] = useState(null);
-
   const card = useRef();
 
   useEffect(() => {
     setRef(card.current);
 
-    console.log(card.current);
     let devObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].intersectionRatio > 0) {

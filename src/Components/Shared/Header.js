@@ -11,12 +11,10 @@ const Header = ({ text, invert }) => {
   useEffect(() => {
     setRef(headerItem.current);
 
-    console.log(headerItem.current);
     let devObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].intersectionRatio > 0) {
           if (ref) {
-            console.log(" we herer");
             setaniName("slideIn");
           }
         }
