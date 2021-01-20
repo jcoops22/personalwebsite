@@ -2,16 +2,31 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 
-const WorkCard = ({ name, delay, bg }) => {
+const WorkCard = ({ name, delay, bg, desc }) => {
   const [previewArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611124735/New%20Portfolio%20Site/Icons/Work/right-arrow-svgrepo-com_pmbhi2.svg"
   );
+
+  const getShortDescription = (desc) => {
+    // take the first senence of descrption
+    return desc.split(".")[0];
+  };
+  const getInitials = (name) => {
+    let length = name.split(" ");
+    let f = length[0][0];
+    let s = length.length > 1 ? length[1][0] : "";
+    let t = length.length > 2 ? length[2][0] : "";
+
+    return f + s + t;
+  };
+
   return (
     <Container delay={delay} className="flip-in-ver-right ">
       <Background bg={bg}>
         <H1>{name}</H1>
       </Background>
-      <BigH1>{"JC"}</BigH1>
+      <Desc>{getShortDescription(desc)}</Desc>
+      <BigH1>{getInitials(name)}</BigH1>
       <Bubble>
         <span>
           See more
@@ -35,13 +50,32 @@ const H1 = styled.h1`
 `;
 const BigH1 = styled.h1`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1rem;
+  left: 2rem;
   text-transform: uppercase;
   color: #f05454;
   font-size: 6rem;
   opacity: 0;
-  /* transition-duration: 0.2s; */
+  /* border: 1px solid red; */
+`;
+const Desc = styled.div`
+  position: absolute;
+  left: -100%;
+  top: 1rem;
+  opacity: 0;
+  width: 70%;
+  height: 100%;
+  color: #ddd;
+  font-weight: 400;
+  padding: 2.5rem 0 0 1.5rem;
+  display: none;
+  align-items: center;
+  background-color: #30475e;
+  transition-duration: 0.5s;
+
+  @media ${device.mobileL} {
+    display: flex;
+  }
 `;
 const Bubble = styled.div`
   position: absolute;
@@ -60,6 +94,7 @@ const Bubble = styled.div`
     cursor: pointer;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     margin-bottom: 2.8rem;
     margin-left: 1rem;
   }
@@ -82,8 +117,9 @@ const Background = styled.div`
   transition-duration: 0.2s;
 `;
 const Container = styled.div`
-  &:hover ${H1} {
-    /* opacity: 0; */
+  &:hover ${Desc} {
+    opacity: 1;
+    left: 1rem;
   }
   &:hover ${BigH1} {
     opacity: 1;
@@ -102,11 +138,10 @@ const Container = styled.div`
   height: 14rem;
   width: 80%;
   opacity: 0;
-  /* min-width: 290px; */
   max-width: 450px;
   margin: 2rem 0.1rem;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: #222831;
   animation-delay: ${(props) => props.delay};
   /* border: 2px solid #ddd; */

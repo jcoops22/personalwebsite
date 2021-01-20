@@ -34,6 +34,7 @@ const Work = () => {
           <WorkCard
             name={work.name}
             bg={work.bg}
+            desc={work.desc}
             delay={`${ind * 0.2}s`}
             key={ind}
           />
