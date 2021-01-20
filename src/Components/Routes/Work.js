@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
 import WorkCard from "../Work/WorkCard";
+import { workItems } from "../Work/WorkInfo";
 
 const Work = () => {
   const [workIcon] = useState(
@@ -14,13 +15,6 @@ const Work = () => {
   const [workImage] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611115833/New%20Portfolio%20Site/andrew-neel-cckf4TsHAuw-unsplash_ido6m4.jpg"
   );
-  const [cardsInfo] = useState([
-    { name: "Dividend Tracker" },
-    { name: "Phew" },
-    { name: "HBS" },
-    { name: "Gym Pact" },
-    { name: "Pwd Manager" },
-  ]);
 
   return (
     <Container bg={workImage}>
@@ -36,8 +30,13 @@ const Work = () => {
         </H3>
       </HeaderWrapper>
       <CardWrapper height={window.innerHeight >= 850 ? "100%" : "620px"}>
-        {cardsInfo.map((card, ind) => (
-          <WorkCard name={card.name} delay={`${ind * 0.2}s`} key={ind} />
+        {workItems.map((work, ind) => (
+          <WorkCard
+            name={work.name}
+            bg={work.bg}
+            delay={`${ind * 0.2}s`}
+            key={ind}
+          />
         ))}
       </CardWrapper>
     </Container>
@@ -101,6 +100,7 @@ const HeaderWrapper = styled.div`
 const H1Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
+  padding-left: 1rem;
 
   img {
     width: 3rem;
