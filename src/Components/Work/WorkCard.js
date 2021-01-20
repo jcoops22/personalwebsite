@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 
-const WorkCard = ({ name, delay, bg, desc }) => {
+const WorkCard = ({ name, delay, bg, desc, showMore, setSelected, work }) => {
   const [previewArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611124735/New%20Portfolio%20Site/Icons/Work/right-arrow-svgrepo-com_pmbhi2.svg"
   );
@@ -21,19 +21,24 @@ const WorkCard = ({ name, delay, bg, desc }) => {
   };
 
   return (
-    <Container delay={delay} className="flip-in-ver-right ">
+    <Wrapper delay={delay} className="flip-in-ver-right ">
       <Background bg={bg}>
         <H1>{name}</H1>
       </Background>
       <Desc>{getShortDescription(desc)}</Desc>
       <BigH1>{getInitials(name)}</BigH1>
       <Bubble>
-        <span>
+        <span
+          onClick={() => {
+            showMore(true);
+            setSelected(work);
+          }}
+        >
           See more
           <img src={previewArrow} alt="see more" />
         </span>
       </Bubble>
-    </Container>
+    </Wrapper>
   );
 };
 
@@ -67,10 +72,12 @@ const Desc = styled.div`
   height: 100%;
   color: #ddd;
   font-weight: 400;
-  padding: 2.5rem 0 0 1.5rem;
+  padding: 2.7rem 0 0 1.5rem;
   display: none;
   align-items: center;
   background-color: #30475e;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   transition-duration: 0.5s;
 
   @media ${device.mobileL} {
@@ -116,7 +123,7 @@ const Background = styled.div`
   background-repeat: no-repeat;
   transition-duration: 0.2s;
 `;
-const Container = styled.div`
+const Wrapper = styled.div`
   &:hover ${Desc} {
     opacity: 1;
     left: 1rem;
@@ -137,13 +144,13 @@ const Container = styled.div`
   position: relative;
   height: 14rem;
   width: 80%;
-  opacity: 0;
   max-width: 450px;
   margin: 2rem 0.1rem;
-  overflow: hidden;
+  opacity: 0;
   border-radius: 5px;
   background-color: #222831;
   animation-delay: ${(props) => props.delay};
+  overflow: hidden;
   /* border: 2px solid #ddd; */
 
   @media ${device.tabletS} {

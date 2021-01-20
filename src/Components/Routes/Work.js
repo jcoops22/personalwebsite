@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
+import InfoModal from "../Work/InfoModal";
 import WorkCard from "../Work/WorkCard";
 import { workItems } from "../Work/WorkInfo";
 
@@ -15,6 +16,8 @@ const Work = () => {
   const [workImage] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611115833/New%20Portfolio%20Site/andrew-neel-cckf4TsHAuw-unsplash_ido6m4.jpg"
   );
+  const [showMore, setShowMore] = useState(false);
+  const [selected, setSelected] = useState(null);
 
   return (
     <Container bg={workImage}>
@@ -29,17 +32,25 @@ const Work = () => {
           All applications are built with mobile first design methodologies
         </H3>
       </HeaderWrapper>
-      <CardWrapper height={window.innerHeight >= 850 ? "100%" : "620px"}>
+      <CardWrapperSection height={window.innerHeight >= 850 ? "100%" : "620px"}>
         {workItems.map((work, ind) => (
-          <WorkCard
-            name={work.name}
-            bg={work.bg}
-            desc={work.desc}
-            delay={`${ind * 0.2}s`}
-            key={ind}
-          />
+          <CardWrapper>
+            <WorkCard
+              showMore={setShowMore}
+              work={work}
+              name={work.name}
+              bg={work.bg}
+              desc={work.desc}
+              delay={`${ind * 0.2}s`}
+              key={ind}
+              setSelected={setSelected}
+            />
+            {showMore ? (
+              <InfoModal work={work} key={work.name} showMore={setShowMore} />
+            ) : null}
+          </CardWrapper>
         ))}
-      </CardWrapper>
+      </CardWrapperSection>
     </Container>
   );
 };
@@ -68,7 +79,7 @@ const Overlay = styled.div`
     rgba(17, 24, 39, 0.9) 100%
   );
 `;
-const CardWrapper = styled.div`
+const CardWrapperSection = styled.div`
   position: relative;
   z-index: 1;
   height: 100vh;
@@ -79,6 +90,14 @@ const CardWrapper = styled.div`
   justify-content: center;
   overflow-y: scroll;
   /* border: 1px solid red; */
+`;
+const CardWrapper = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid red;
 `;
 const HeaderWrapper = styled.div`
   position: absolute;
