@@ -36,7 +36,7 @@ export default Header;
 // styles
 const Wrapper = styled.div`
   position: relative;
-  left: -1000px;
+  left: -11rem;
   width: 100%;
   display: flex;
   margin-bottom: 2rem;

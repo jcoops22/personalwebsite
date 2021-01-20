@@ -21,6 +21,7 @@ const Card = ({ header, list, icon, invert }) => {
     );
     devObserver.observe(card.current);
   }, [ref]);
+
   return (
     <Wrapper
       className="sm:shadow-lg"

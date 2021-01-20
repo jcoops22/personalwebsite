@@ -7,7 +7,7 @@ export const uxIconvar =
 export const developerItemsvar = [
   {
     name:
-      "Bring applications to life with modern JavaScript frameworks such as ReactJS and VueJS",
+      "Bring applications to life on the FrontEnd with modern JavaScript frameworks such as ReactJS and VueJS",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/005-code_rjnkga.svg",
   },
@@ -18,12 +18,12 @@ export const developerItemsvar = [
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/002-cloud_computing_gayk2z.svg",
   },
   {
-    name: "NodeJS, Python and Ruby (Ruby on Rails)",
+    name: "Languages: HTML5, CSS3, JavaScript, NodeJS, Python, Ruby",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/012-files_tl7jub.svg",
   },
   {
-    name: "MongoDB, Firebase CloudStore, Postgress, SQL",
+    name: "Databases: MongoDB, Firebase CloudStore, Postgress, SQL",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/007-database_oezqwk.svg",
   },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ import {
   designerItemsvar,
   uxItemsvar,
 } from "./StatementInfo";
+import arrow from "../../resources/arrow.svg";
 
 const StatementsWrapper = () => {
   const [devIcon] = useState(devIconvar);
@@ -19,6 +20,25 @@ const StatementsWrapper = () => {
   const [developerItems] = useState(developerItemsvar);
   const [designerItems] = useState(designerItemsvar);
   const [uxItems] = useState(uxItemsvar);
+
+  const [ref, setRef] = useState(null);
+  const btn = useRef();
+
+  useEffect(() => {
+    setRef(btn.current);
+
+    let devObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].intersectionRatio > 0) {
+          if (ref) {
+            ref.classList.add("bounce-in-bottom");
+          }
+        }
+      },
+      { rootMargin: "-100px" }
+    );
+    devObserver.observe(btn.current);
+  }, [ref]);
 
   return (
     <Wrapper>
@@ -38,10 +58,11 @@ const StatementsWrapper = () => {
       <CardWrapper bg="#ddd" className="card">
         <Header text={"What I bring"} invert={true} />
         <Card icon={uxIcon} header={"UX/UI"} list={uxItems} />
-        <BtnWrapper>
+        <BtnWrapper ref={btn}>
           <Link to="/work">
             <button>See my work</button>
           </Link>
+          <Img src={arrow} alt="arrow" />
         </BtnWrapper>
       </CardWrapper>
     </Wrapper>
@@ -71,7 +92,6 @@ const CardWrapper = styled.div`
 
   button {
     &:hover {
-      /* color: #222831; */
       background-color: #30475e;
     }
     width: 9rem;
@@ -82,9 +102,27 @@ const CardWrapper = styled.div`
     color: #ddd;
     transition-duration: 0.3s;
     border-radius: 5px;
+    animation: bounceUpOpen 3s forwards;
     background-color: #f05454;
   }
 `;
+const Img = styled.img`
+  position: absolute;
+  left: 0;
+  width: 2rem;
+  z-index: -1;
+  /* opacity: 0; */
+  transition-duration: 0.3s;
+`;
 const BtnWrapper = styled.div`
+  &:hover ${Img} {
+    opacity: 1;
+    left: 100%;
+  }
+
+  position: relative;
   margin: auto;
+  opacity: 0;
+  display: flex;
+  align-items: center;
 `;
