@@ -143,18 +143,12 @@ const Wrapper = styled.div`
   }
   position: relative;
   height: 14rem;
-  width: 80%;
+  width: 100%;
   max-width: 450px;
-  margin: 2rem 0.1rem;
   opacity: 0;
   border-radius: 5px;
   background-color: #222831;
   animation-delay: ${(props) => props.delay};
   overflow: hidden;
   /* border: 2px solid #ddd; */
-
-  @media ${device.tabletS} {
-    margin: 0.5rem;
-    /* width: 70%; */
-  }
 `;

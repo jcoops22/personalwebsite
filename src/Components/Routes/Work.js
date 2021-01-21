@@ -42,14 +42,12 @@ const Work = () => {
               bg={work.bg}
               desc={work.desc}
               delay={`${ind * 0.2}s`}
-              key={ind}
+              key={work.name}
               setSelected={setSelected}
             />
-            {showMore ? (
-              <InfoModal work={work} key={work.name} showMore={setShowMore} />
-            ) : null}
           </CardWrapper>
         ))}
+        {showMore ? <InfoModal work={selected} showMore={setShowMore} /> : null}
       </CardWrapperSection>
     </Container>
   );
@@ -92,12 +90,20 @@ const CardWrapperSection = styled.div`
   /* border: 1px solid red; */
 `;
 const CardWrapper = styled.div`
-  width: 50%;
+  height: 14rem;
+  width: 80%;
+  min-width: 300px;
+  max-width: 450px;
+  margin: 2rem 0.1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+
+  @media ${device.tabletS} {
+    margin: 0.5rem;
+  }
 `;
 const HeaderWrapper = styled.div`
   position: absolute;

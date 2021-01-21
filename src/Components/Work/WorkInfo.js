@@ -8,10 +8,43 @@ export const workItems = [
   },
   {
     name: "Phew! Apparel",
+    github: "https://github.com/jcoops22/phewapparel",
+    site: "https://phewapparel.herokuapp.com/",
     desc:
       "Robust online store built with React/Redux and Firebase database. User auth, emailed receipts and updates on shipping. Paypal/Stripe payment integration. A complete admin system to manage products and orders. Feel free to buy a shirt from my cousin!",
     bg:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1606710568/Portfolio%20Site/Projects%20Images/Screen_Shot_2020-11-29_at_9.10.09_PM_n9lfws.jpg",
+    screenshots: [
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1606710568/Portfolio%20Site/Projects%20Images/Screen_Shot_2020-11-29_at_9.10.09_PM_n9lfws.jpg",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611182101/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-20_at_3.26.56_PM_xqkwaf.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611182099/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-20_at_3.20.07_PM_bpbouf.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611182099/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-20_at_3.21.47_PM_atc785.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611182099/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-20_at_3.20.40_PM_h3yahk.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611182098/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-20_at_3.21.08_PM_hitubj.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611182098/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-20_at_3.28.02_PM_e6e6ed.png",
+    ],
+    languages: [
+      {
+        name: "React",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+      },
+      {
+        name: "Redux",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+      },
+      {
+        name: "Firebase",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+      },
+      {
+        name: "NodeJS",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+      },
+    ],
   },
   {
     name: "Hair By Shandel",
