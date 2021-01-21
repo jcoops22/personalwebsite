@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { device } from "../../resources/mediaquery";
 
 const Pictures = ({ pics }) => {
   const [index, setIndex] = useState(0);
+  const [leftArrow] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210526/New%20Portfolio%20Site/Projects/left-arrow-svgrepo-com_jswv0u.svg"
+  );
+  const [rigthArrow] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210527/New%20Portfolio%20Site/Projects/right-arrow-svgrepo-com_cuk6lt.svg"
+  );
   useEffect(() => {
     console.log(index);
   }, [index]);
@@ -13,7 +19,25 @@ const Pictures = ({ pics }) => {
       {pics ? (
         <Wrapper>
           <ImgWrapper>
+            <Prev>
+              <img
+                src={leftArrow}
+                alt="right arrow"
+                onClick={() =>
+                  setIndex(index <= 0 ? pics.length - 1 : index - 1)
+                }
+              />
+            </Prev>
             <img src={pics[index]} alt="project screenshot" />
+            <Next>
+              <img
+                src={rigthArrow}
+                alt="right arrow"
+                onClick={() =>
+                  setIndex(index < pics.length - 1 ? index + 1 : 0)
+                }
+              />
+            </Next>
           </ImgWrapper>
           <NavDots>
             {pics.map((pic, ind) => (
@@ -33,6 +57,24 @@ const Pictures = ({ pics }) => {
 export default Pictures;
 
 // styles
+const Nav = css`
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  height: 266px;
+  width: 25%;
+  cursor: pointer;
+  transition-duration: 0.7s;
+  // border: 1px solid red;
+`;
+const Prev = styled.div`
+  ${Nav}
+  left: 0;
+`;
+const Next = styled.div`
+  ${Nav}
+  left: 75%;
+`;
 const Container = styled.div`
   position: relative;
   top: 0;
@@ -62,12 +104,19 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const ImgWrapper = styled.div`
+  &:hover ${Prev} {
+    opacity: 0.2;
+  }
+  &:hover ${Next} {
+    opacity: 0.2;
+  }
+  position: relative;
   width: 100%;
-  height: 266px;
   display: flex;
   align-items: center;
 
   img {
+    height: 266px;
     width: 100%;
   }
 `;

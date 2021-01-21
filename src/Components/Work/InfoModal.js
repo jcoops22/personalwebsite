@@ -209,7 +209,7 @@ const DescAndLinks = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   /* border: 1px solid greenyellow; */
 `;
@@ -242,11 +242,16 @@ const Description = styled.div`
       opacity: 0;
     }
   }
+
+  @media ${device.laptop} {
+    width: 50%;
+  }
 `;
 const LinksWrapper = styled.div`
   position: relative;
   left: -50%;
   width: 50%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
