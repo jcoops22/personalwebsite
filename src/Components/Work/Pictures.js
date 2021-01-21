@@ -58,6 +58,9 @@ export default Pictures;
 
 // styles
 const Nav = css`
+  &:hover {
+    opacity: 0.3;
+  }
   position: absolute;
   top: 0;
   opacity: 0;
@@ -104,12 +107,6 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const ImgWrapper = styled.div`
-  &:hover ${Prev} {
-    opacity: 0.2;
-  }
-  &:hover ${Next} {
-    opacity: 0.2;
-  }
   position: relative;
   width: 100%;
   display: flex;

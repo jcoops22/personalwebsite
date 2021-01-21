@@ -127,10 +127,18 @@ const H1Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   padding-left: 1rem;
+  opacity: 0;
+  animation: fadeHeaderWrapperIn 1s linear forwards;
 
   img {
     width: 3rem;
     margin-right: 1rem;
+  }
+
+  @keyframes fadeHeaderWrapperIn {
+    to {
+      opacity: 1;
+    }
   }
 `;
 const Headline = styled.h1`

@@ -254,7 +254,7 @@ const LinksWrapper = styled.div`
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   animation: slideInLinksWrapper 0.6s forwards;
   /* border: 1px solid red; */
@@ -296,6 +296,10 @@ const LinksWrapper = styled.div`
     to {
       left: 0;
     }
+  }
+
+  @media ${device.tablet} {
+    /* flex-direction: row; */
   }
 `;
 const LinkDiv = styled.div`
