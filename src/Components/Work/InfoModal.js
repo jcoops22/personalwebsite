@@ -99,18 +99,22 @@ const Close = styled.span`
   cursor: pointer;
   position: absolute;
   z-index: 2;
-  top: 10rem;
+  top: 5rem;
   left: calc(100% - 4rem);
   font-size: 1.1rem;
   color: #ddd;
   /* border: 3px solid red; */
+
+  @media ${device.tabletS} {
+    top: 7rem;
+  }
 `;
 const HeaderTechAndPictures = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  padding-top: 8rem;
+  padding-top: 5rem;
   /* border: 1px solid green; */
 `;
 const HeaderAndTech = styled.div`
@@ -129,7 +133,7 @@ const HeaderAndTech = styled.div`
 `;
 const H1 = styled.h1`
   position: relative;
-  top: 0.8rem;
+  top: 0;
   left: 0;
   color: #ddd;
   width: 100%;
@@ -147,9 +151,6 @@ const H1 = styled.h1`
     }
   }
 
-  @media ${device.mobileM} {
-    top: 0;
-  }
   @media ${device.tabletS} {
     padding-left: 0;
   }
@@ -211,6 +212,7 @@ const DescAndLinks = styled.div`
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
   /* border: 1px solid greenyellow; */
 `;
 const Description = styled.div`
