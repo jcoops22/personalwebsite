@@ -5,9 +5,38 @@ export const workItems = [
       "Stock Market app to track your dividend payouts. Hooks into two API's, one for the stock marget symbol data and one for the real-time market data. D3 for graph visualizations. Firebase database and user auth",
     bg:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1609535654/Portfolio%20Site/Projects%20Images/Screen_Shot_2021-01-01_at_2.10.34_PM_ryq51b.png",
+    screenshots: [
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1609535654/Portfolio%20Site/Projects%20Images/Screen_Shot_2021-01-01_at_2.10.34_PM_ryq51b.png",
+      "",
+    ],
+    languages: [
+      {
+        name: "React",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+      },
+      {
+        name: "Redux",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611201881/New%20Portfolio%20Site/Projects/langIcons/redux-logo-svgrepo-com_y1ai7r.svg",
+      },
+      {
+        name: "Firebase",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611207841/New%20Portfolio%20Site/Projects/langIcons/firebase-1-logo-svgrepo-com_ahry6g.svg",
+      },
+      {
+        name: "D3",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611214567/New%20Portfolio%20Site/Projects/langIcons/d3_ooueho.svg",
+      },
+    ],
+    github: "https://github.com/jcoops22/dividend_tracker",
+    site: "https://sleepy-stonebraker-5b5314.netlify.app/",
   },
   {
     name: "Phew! Apparel",
+    font: "",
     github: "https://github.com/jcoops22/phewapparel",
     site: "https://phewapparel.herokuapp.com/",
     desc:
@@ -44,6 +73,16 @@ export const workItems = [
         icon:
           "https://res.cloudinary.com/drucvvo7f/image/upload/v1611207863/New%20Portfolio%20Site/Projects/langIcons/nodejs-icon-logo-svgrepo-com_hnpz1v.svg",
       },
+      {
+        name: "PayPal",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611215454/New%20Portfolio%20Site/Projects/langIcons/paypal-icon-logo-svgrepo-com_prgk3y.svg",
+      },
+      {
+        name: "Stripe",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611215551/New%20Portfolio%20Site/Projects/langIcons/stripe-svgrepo-com_lmsyfd.svg",
+      },
     ],
   },
   {
@@ -52,6 +91,35 @@ export const workItems = [
       "Local Hair Salon business website. Static site, built with JavaScript, HTML5, CSS3, and GSAP ScrollMagic library",
     bg:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1606172387/Portfolio%20Site/Projects%20Images/Screen_Shot_2020-11-21_at_12.32.14_PM_hvljzi.png",
+    screenshots: [
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1606172387/Portfolio%20Site/Projects%20Images/Screen_Shot_2020-11-21_at_12.32.14_PM_hvljzi.png",
+      "",
+      "",
+    ],
+    github: "https://github.com/jcoops22/hbs",
+    site: "https://jcoops22.github.io/hbs/",
+    languages: [
+      {
+        name: "GSAP",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611214896/New%20Portfolio%20Site/Projects/langIcons/5a224f121f96bd037bf6c1c1e2b686fb_cfvh5p.png",
+      },
+      {
+        name: "JavaScript",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611214896/New%20Portfolio%20Site/Projects/langIcons/javascript-logo-svgrepo-com_uh58dw.svg",
+      },
+      {
+        name: "HTML5",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611214896/New%20Portfolio%20Site/Projects/langIcons/html5-svgrepo-com_oppsyd.svg",
+      },
+      {
+        name: "CSS3",
+        icon:
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611214896/New%20Portfolio%20Site/Projects/langIcons/css3-logo-svgrepo-com_wv5gtd.svg",
+      },
+    ],
   },
   {
     name: "Gym Pact",

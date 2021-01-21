@@ -7,7 +7,7 @@ export const uxIconvar =
 export const developerItemsvar = [
   {
     name:
-      "Bring applications to life on the FrontEnd with modern JavaScript frameworks such as ReactJS and VueJS",
+      "Bring applications to life on the front end with modern JavaScript frameworks such as ReactJS and VueJS",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/005-code_rjnkga.svg",
   },
@@ -18,7 +18,8 @@ export const developerItemsvar = [
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/002-cloud_computing_gayk2z.svg",
   },
   {
-    name: "Languages: HTML5, CSS3, JavaScript, NodeJS, Python, Ruby",
+    name:
+      "Languages: HTML5, CSS3, JavaScript, NodeJS, VueJS, TypeScript, Python, Ruby",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610944681/New%20Portfolio%20Site/Icons/Develop/012-files_tl7jub.svg",
   },
@@ -41,9 +42,15 @@ export const designerItemsvar = [
   },
   {
     name:
-      "Use of design wireframing tools like Figma and Sketch as well as collaborative tool such as Trello",
+      "Use of design wireframing tools like Figma and Sketch as well as collaborative tools like Trello",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945028/New%20Portfolio%20Site/Icons/Design/022-layout_isfu9m.svg",
+  },
+  {
+    name:
+      "Have worked heavily with version control platforms such as Git, GitHub, and Team Foundation Server (TFS)",
+    icon:
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611213733/New%20Portfolio%20Site/Icons/Design/014-shared_folder_n1vm3y.svg",
   },
   {
     name:
