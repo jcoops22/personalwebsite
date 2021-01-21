@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
@@ -110,7 +110,7 @@ const HeaderWrapper = styled.div`
   z-index: 2;
   top: 0;
   width: 100%;
-  height: 10rem;
+  height: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,14 +121,20 @@ const HeaderWrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
-  /* border: 1px solid red; */
+  border: 1px solid red;
+
+  @media ${device.tabletS} {
+    height: 10rem;
+  }
 `;
 const H1Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   padding-left: 1rem;
   opacity: 0;
   animation: fadeHeaderWrapperIn 1s linear forwards;
+  border: 1px solid green;
 
   img {
     width: 3rem;
