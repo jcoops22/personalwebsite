@@ -81,7 +81,7 @@ const CardWrapperSection = styled.div`
   position: relative;
   z-index: 1;
   height: 100vh;
-  padding: 15rem 1rem 1rem;
+  padding: 10rem 1rem 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

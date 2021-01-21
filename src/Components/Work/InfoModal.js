@@ -22,7 +22,7 @@ const InfoModal = ({ showMore, work }) => {
       <Close onClick={() => showMore(false)}>[close]</Close>
       <HeaderTechAndPictures>
         <HeaderAndTech>
-          {work ? <H1>{work.name}</H1> : null}
+          {work ? <H1 font={work.font}>{work.name}</H1> : null}
           {languages.length ? (
             <Languages>
               <span>Tech:</span>
@@ -78,18 +78,26 @@ export default InfoModal;
 // styles
 const Container = styled.div`
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
   height: 100vh;
   width: 100vw;
-  z-index: 3;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
   color: #ddd;
   background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeModalIn 0.5s linear forwards;
   /* border: 2px solid white; */
+
+  @keyframes fadeModalIn {
+    to {
+      opacity: 1;
+    }
+  }
 
   @media ${device.tabletS} {
     padding-top: 2rem;
@@ -138,6 +146,7 @@ const H1 = styled.h1`
   color: #ddd;
   width: 100%;
   font-size: 2rem;
+  font-family: ${(props) => props.font};
   margin-bottom: 1.5rem;
   text-align: left;
   padding-left: 1rem;
@@ -170,6 +179,7 @@ const Languages = styled.ul`
     width: 100%;
     font-size: 1.3rem;
     color: #f05454;
+    text-decoration: underline;
     /* border: 1px solid green; */
   }
 
@@ -189,9 +199,10 @@ const Languages = styled.ul`
 `;
 const Li = styled.li`
   position: relative;
-  top: -1.5rem;
+  top: -1.8rem;
   opacity: 0;
   width: 50%;
+  margin-top: 0.3rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -225,8 +236,9 @@ const Description = styled.div`
   font-size: 1.3rem;
   display: flex;
   align-items: flex-start;
-  padding: 2rem;
+  padding: 0.8rem 1rem;
   color: #ddd;
+  font-weight: 300;
   border-radius: 5px;
   background-color: #30475e;
   background: rgb(55, 65, 81);

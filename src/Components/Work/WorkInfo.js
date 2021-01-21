@@ -1,6 +1,7 @@
 export const workItems = [
   {
     name: "Dividend Tracker",
+    font: "'Exo', sans-serif",
     desc:
       "Stock Market app to track your dividend payouts. Hooks into two API's, one for the stock marget symbol data and one for the real-time market data. D3 for graph visualizations. Firebase database and user auth",
     bg:
@@ -36,7 +37,7 @@ export const workItems = [
   },
   {
     name: "Phew! Apparel",
-    font: "",
+    font: "'Shadows Into Light', cursive",
     github: "https://github.com/jcoops22/phewapparel",
     site: "https://phewapparel.herokuapp.com/",
     desc:
@@ -87,6 +88,7 @@ export const workItems = [
   },
   {
     name: "Hair By Shandel",
+    font: "'Dancing Script', cursive",
     desc:
       "Local Hair Salon business website. Static site, built with JavaScript, HTML5, CSS3, and GSAP ScrollMagic library",
     bg:
