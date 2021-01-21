@@ -34,7 +34,7 @@ const Work = () => {
       </HeaderWrapper>
       <CardWrapperSection height={window.innerHeight >= 850 ? "100%" : "620px"}>
         {workItems.map((work, ind) => (
-          <CardWrapper>
+          <CardWrapper key={ind}>
             <WorkCard
               showMore={setShowMore}
               work={work}

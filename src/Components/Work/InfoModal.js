@@ -40,20 +40,32 @@ const InfoModal = ({ showMore, work }) => {
         <Description>{work.desc}</Description>
         <LinksWrapper>
           {work.site ? (
-            <Site>
+            <LinkDiv>
               <a href={work.site} target="_blank" rel="noopener noreferrer">
-                <span>See site</span>
-                <img src={linkIcon} alt="visit website" />
+                <Site>
+                  <img src={linkIcon} alt="visit website" />
+                </Site>
               </a>
-            </Site>
+              <LinkText>
+                <a href={work.site} target="_blank" rel="noopener noreferrer">
+                  See site
+                </a>
+              </LinkText>
+            </LinkDiv>
           ) : null}
           {work.github ? (
-            <Git>
+            <LinkDiv>
               <a href={work.github} target="_blank" rel="noopener noreferrer">
-                <span>See source code</span>
-                <img src={codeIconLink} alt="see code" />
+                <Git>
+                  <img src={codeIconLink} alt="see code" />
+                </Git>
               </a>
-            </Git>
+              <LinkText>
+                <a href={work.github} target="_blank" rel="noopener noreferrer">
+                  See source code
+                </a>
+              </LinkText>
+            </LinkDiv>
           ) : null}
         </LinksWrapper>
       </DescAndLinks>
@@ -75,7 +87,7 @@ const Container = styled.div`
   align-items: center;
   top: 0;
   left: 0;
-  color: #fff;
+  color: #ddd;
   background-color: rgba(0, 0, 0, 0.8);
   /* border: 2px solid white; */
 
@@ -117,8 +129,9 @@ const HeaderAndTech = styled.div`
 `;
 const H1 = styled.h1`
   position: relative;
-  top: 0;
+  top: 0.8rem;
   left: 0;
+  color: #ddd;
   width: 100%;
   font-size: 2rem;
   margin-bottom: 1.5rem;
@@ -134,6 +147,9 @@ const H1 = styled.h1`
     }
   }
 
+  @media ${device.mobileM} {
+    top: 0;
+  }
   @media ${device.tabletS} {
     padding-left: 0;
   }
@@ -153,6 +169,7 @@ const Languages = styled.ul`
     width: 100%;
     font-size: 1.3rem;
     color: #f05454;
+    /* border: 1px solid green; */
   }
 
   img {
@@ -232,28 +249,30 @@ const LinksWrapper = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   animation: slideInLinksWrapper 0.6s forwards;
   /* border: 1px solid red; */
 
   button {
+    &:focus {
+      outline: none;
+    }
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     margin: 0;
     border-radius: 50%;
     animation: spreadOutButtonLinks 0.4s 0.6s forwards;
   }
 
-  span {
-    display: none;
-  }
-
   img {
     width: 1.8rem;
+    /* border: 1px solid red; */
   }
 
   @keyframes slideInLinksWrapper {
@@ -268,7 +287,46 @@ const LinksWrapper = styled.div`
     }
   }
 
-  @media ${device.tabletS} {
+  @keyframes slideOutLinkSpan {
+    to {
+      left: 0;
+    }
+  }
+`;
+const LinkDiv = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  overflow-x: hidden;
+  /* border: 1px solid red; */
+
+  @media ${device.tabletM} {
+    justify-content: flex-start;
+    width: 240px;
+  }
+`;
+const LinkText = styled.div`
+  position: relative;
+  left: -100%;
+  opacity: 0;
+  color: #ddd;
+  font-size: 1.4rem;
+  display: none;
+  margin-left: 1rem;
+  animation: slideOutLinkSpan 0.4s 1s forwards;
+  /* border: 1px solid red; */
+
+  @keyframes slideOutLinkSpan {
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  @media ${device.tabletM} {
     display: initial;
   }
 `;

@@ -32,17 +32,17 @@ export const workItems = [
       {
         name: "Redux",
         icon:
-          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611201881/New%20Portfolio%20Site/Projects/langIcons/redux-logo-svgrepo-com_y1ai7r.svg",
       },
       {
         name: "Firebase",
         icon:
-          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611207841/New%20Portfolio%20Site/Projects/langIcons/firebase-1-logo-svgrepo-com_ahry6g.svg",
       },
       {
         name: "NodeJS",
         icon:
-          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611186564/New%20Portfolio%20Site/Projects/langIcons/react-1-logo-svgrepo-com_hzsexg.svg",
+          "https://res.cloudinary.com/drucvvo7f/image/upload/v1611207863/New%20Portfolio%20Site/Projects/langIcons/nodejs-icon-logo-svgrepo-com_hnpz1v.svg",
       },
     ],
   },
