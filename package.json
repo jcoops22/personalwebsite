@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "PORT=4000 craco start",
-    "build": "(cd backend && yarn start) craco build",
+    "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
