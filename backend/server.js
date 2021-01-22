@@ -5,7 +5,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/hey", (req, res) => {
-  return res.send("pong");
+  res.send({ data: "pong" });
+  console.log(req.body);
 });
 
 app.get("/", (req, res) => {
