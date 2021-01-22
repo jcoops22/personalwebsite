@@ -5,9 +5,11 @@ import Navigation from "../Shared/Navigation";
 
 const Contact = () => {
   const handleSubmit = () => {
-    fetch("/hey").then((data) => {
-      console.log(data.json());
-    });
+    fetch("/hey")
+      .then((data) => {
+        console.log(data.json());
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <Container>
