@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Components/Routes/Home";
 import Work from "./Components/Routes/Work";
-import Contact from "./Components/Contact";
+import Contact from "./Components/Routes/Contact";
 
 function App() {
   return (

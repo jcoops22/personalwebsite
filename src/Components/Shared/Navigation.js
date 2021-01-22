@@ -6,9 +6,7 @@ import { device } from "../../resources/mediaquery";
 const Navigation = () => {
   const [showNav, setShowNav] = useState(false);
 
-  useEffect(() => {
-    console.log(showNav);
-  }, [showNav]);
+  useEffect(() => {}, [showNav]);
   return (
     <nav>
       <NavIconWrapper
