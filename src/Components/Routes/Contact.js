@@ -7,9 +7,15 @@ const Contact = () => {
   const handleSubmit = () => {
     fetch("/hey")
       .then((data) => {
-        console.log(data.json());
+        console.log(data);
+        // console.log(data.json());
       })
       .catch((err) => console.log(err));
+    setTimeout(() => {
+      fetch("/hoooooo")
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err.message));
+    }, 1000);
   };
   return (
     <Container>
