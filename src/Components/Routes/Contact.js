@@ -332,5 +332,5 @@ const Counter = styled.span`
   z-index: 2;
   top: calc(100% - 2rem);
   left: calc(100% - 3rem);
-  color: red;
+  color: #f05454;
 `;
