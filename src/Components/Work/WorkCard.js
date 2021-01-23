@@ -104,6 +104,7 @@ const Bubble = styled.div`
     align-items: center;
     margin-bottom: 2.8rem;
     margin-left: 1rem;
+    transition-duration: 0.4s;
   }
 
   img {

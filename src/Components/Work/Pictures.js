@@ -33,9 +33,9 @@ const Pictures = ({ pics }) => {
               <img
                 src={rigthArrow}
                 alt="right arrow"
-                onClick={() =>
-                  setIndex(index < pics.length - 1 ? index + 1 : 0)
-                }
+                onClick={() => {
+                  setIndex(index < pics.length - 1 ? index + 1 : 0);
+                }}
               />
             </Next>
           </ImgWrapper>
@@ -111,6 +111,7 @@ const ImgWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   img {
     height: 266px;

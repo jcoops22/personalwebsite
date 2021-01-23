@@ -1,27 +1,113 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
+import Footer from "../Shared/Footer";
 
 const Contact = () => {
+  const [bg] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1610949169/New%20Portfolio%20Site/Screen_Shot_2021-01-17_at_10.37_1_1_1_kkynsh.jpg"
+  );
+  const [helloPic] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611383304/New%20Portfolio%20Site/cytonn-photography-ZJEKICY5EXY-unsplash_1_mr0qvu.jpg"
+  );
+  const [contactIcon] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611384636/New%20Portfolio%20Site/Icons/016-help_yaz7q4.svg"
+  );
+  const [name, setName] = useState("");
+  const [valName, setValName] = useState(false);
+  const [email, setEmail] = useState("");
+  const [valEmail, setValEmail] = useState(false);
+  const [message, setMessage] = useState("");
+  const [valMessage, setValMessage] = useState(false);
+  const [showValidation, setShowValidation] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // SUBMIT to backend
   const handleSubmit = () => {
-    fetch("/hey")
-      .then((data) => {
-        console.log(data);
-        // console.log(data.json());
-      })
-      .catch((err) => console.log(err));
-    setTimeout(() => {
-      fetch("/hoooooo")
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err.message));
-    }, 1000);
+    if (!!valName && valEmail && valMessage) {
+      setShowValidation(false);
+      validateForm();
+      fetch("/hey")
+        .then((data) => {
+          console.log(data.json());
+        })
+        .then(() => {
+          setName("");
+          setEmail("");
+          setMessage("");
+          window.scrollTo(0, 0);
+        })
+        .catch((err) => console.log(err));
+    }
+    setShowValidation(true);
+  };
+  // input validation
+  const validateForm = (field) => {
+    if (field) {
+      if (field.name === "name") {
+        return field.value.length ? setValName(true) : setValName(false);
+      } else if (field.name === "email") {
+        return field.value.length &&
+          field.value.includes("@") &&
+          field.value.includes(".com")
+          ? setValEmail(true)
+          : setValEmail(false);
+      } else if (field.name === "message") {
+        return field.value.length ? setValMessage(true) : setValMessage(false);
+      }
+    }
   };
   return (
     <Container>
       <Navigation />
-      <h1>Contact Page</h1>
-      <button onClick={() => handleSubmit()}>Click</button>
+      <HeaderWrapper bg={bg}>
+        <H1Wrapper>
+          <img src={contactIcon} alt="portfolio work" />
+          <Headline>Contact</Headline>
+        </H1Wrapper>
+      </HeaderWrapper>
+      <Wrapper bg={helloPic}>
+        <Form>
+          <H3>Drop me a line.</H3>
+          <FormWrapper>
+            <Label>
+              <span>Name</span>
+              {showValidation ? <div>Please enter a valid name</div> : null}
+            </Label>
+            <Name
+              type="text"
+              placeholder="enter name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+            <Label>
+              <span>Email</span>
+              {showValidation ? <div>Please enter a valid email</div> : null}
+            </Label>
+            <Email
+              type="email"
+              placeholder="enter email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <Label>
+              <span>Message</span>
+              {showValidation ? <div>Please enter a valid message</div> : null}
+            </Label>
+            <Message
+              placeholder="What do you want to say?"
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+            />
+          </FormWrapper>
+        </Form>
+      </Wrapper>
+      <button onClick={() => handleSubmit()}>Send</button>
+      <Footer />
     </Container>
   );
 };
@@ -29,7 +115,176 @@ const Contact = () => {
 export default Contact;
 
 // styles
-const Container = styled.div`
+const Input = css`
+  height: 2.3rem;
+  width: 100%;
+  max-width: 430px;
+`;
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
+  padding-top: 5rem;
   background-color: #30475e;
+  /* border: 1px solid red; */
+
+  button {
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #222831;
+    margin: 0.7rem 0 3rem;
+    background-color: #f05454;
+  }
+
+  @media ${device.tabletS} {
+    justify-content: center;
+  }
+`;
+const HeaderWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url(${(props) => props.bg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* border: 1px solid red; */
+`;
+const H1Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1rem;
+  opacity: 0;
+  animation: fadeHeaderWrapperIn 1s linear forwards;
+  /* border: 1px solid green; */
+
+  img {
+    width: 2rem;
+    margin-right: 1rem;
+  }
+
+  @keyframes fadeHeaderWrapperIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media ${device.tabletS} {
+    img {
+      width: 3rem;
+    }
+  }
+`;
+const Headline = styled.h1`
+  width: 100%;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #f05454;
+  text-align: center;
+
+  @media ${device.tabletS} {
+    font-size: 3rem;
+  }
+`;
+const Wrapper = styled.div`
+  width: 100%;
+  background-image: url(${(props) => props.bg});
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  /* border: 1px solid red; */
+`;
+const Form = styled.div`
+  height: 100%;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(48, 71, 94, 0.8);
+  /* border: 2px solid #ddd; */
+`;
+const H3 = styled.h3`
+  font-size: 2.3rem;
+  color: #ddd;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: flexH3 0.8s alternate 2;
+  /* border: 1px solid red; */
+
+  @keyframes flexH3 {
+    to {
+      transform: scale(1.4);
+    }
+  }
+`;
+const FormWrapper = styled.div`
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  animation: fadeFormWrapperIn 0.7s linear forwards;
+  /* border: 1px solid red; */
+
+  input,
+  textarea {
+    background-color: #ddd;
+    color: #30475e;
+    padding: 0.2rem 0.7rem;
+    font-size: 1.4rem;
+    border-radius: 3px;
+
+    ::placeholder {
+      font-size: 1.2rem;
+    }
+  }
+
+  @keyframes fadeFormWrapperIn {
+    to {
+      opacity: 1;
+    }
+  }
+`;
+const Label = styled.label`
+  width: 100%;
+  max-width: 430px;
+  color: #f05454;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* border: 1px solid red; */
+
+  div {
+    color: red;
+    font-size: 0.8rem;
+  }
+  /* border: 2px solid #ddd; */
+`;
+const Name = styled.input`
+  ${Input};
+`;
+const Email = styled.input`
+  ${Input};
+`;
+const Message = styled.textarea`
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  font-size: 2rem;
 `;

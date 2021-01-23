@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
 import InfoModal from "../Work/InfoModal";
 import WorkCard from "../Work/WorkCard";
+import Footer from "../Shared/Footer";
 import { workItems } from "../Work/WorkInfo";
 
 const Work = () => {
@@ -18,6 +19,10 @@ const Work = () => {
   );
   const [showMore, setShowMore] = useState(false);
   const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container bg={workImage}>
@@ -49,6 +54,7 @@ const Work = () => {
         ))}
         {showMore ? <InfoModal work={selected} showMore={setShowMore} /> : null}
       </CardWrapperSection>
+      <Footer />
     </Container>
   );
 };
@@ -56,10 +62,7 @@ const Work = () => {
 export default Work;
 
 // styles
-const Container = styled.div`
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
+const Container = styled.section`
   background-image: url(${(props) => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
