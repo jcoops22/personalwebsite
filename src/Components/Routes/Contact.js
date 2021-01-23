@@ -24,13 +24,14 @@ const Contact = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [valName, valEmail, valMessage]);
 
   // SUBMIT to backend
   const handleSubmit = () => {
     if (!!valName && valEmail && valMessage) {
       setShowValidation(false);
       validateForm();
+      // POST CALL
       fetch("/hey")
         .then((data) => {
           console.log(data.json());
@@ -42,8 +43,9 @@ const Contact = () => {
           window.scrollTo(0, 0);
         })
         .catch((err) => console.log(err));
+    } else {
+      setShowValidation(true);
     }
-    setShowValidation(true);
   };
   // input validation
   const validateForm = (field) => {
@@ -61,6 +63,12 @@ const Contact = () => {
       }
     }
   };
+
+  const messageCount = (text) => {
+    console.log(300 - text.length);
+    return 300 - text.length;
+  };
+
   return (
     <Container>
       <Navigation />
@@ -74,35 +82,55 @@ const Contact = () => {
         <Form>
           <H3>Drop me a line.</H3>
           <FormWrapper>
-            <Label>
+            <Label htmlFor="name">
               <span>Name</span>
-              {showValidation ? <div>Please enter a valid name</div> : null}
+              {showValidation ? (
+                <div> {valName ? null : "Please enter your name"}</div>
+              ) : null}
             </Label>
             <Name
               type="text"
+              name="name"
               placeholder="enter name"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                console.log("we changing");
+                validateForm(e.target);
+                setName(e.target.value);
+              }}
               value={name}
             />
-            <Label>
+            <Label htmlFor="email">
               <span>Email</span>
-              {showValidation ? <div>Please enter a valid email</div> : null}
+              {showValidation ? (
+                <div> {valEmail ? null : "Please enter a valid email"}</div>
+              ) : null}
             </Label>
             <Email
               type="email"
+              name="email"
               placeholder="enter email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                validateForm(e.target);
+                setEmail(e.target.value);
+              }}
               value={email}
             />
-            <Label>
+            <Label htmlFor="message">
               <span>Message</span>
-              {showValidation ? <div>Please enter a valid message</div> : null}
+              {showValidation ? (
+                <div> {valMessage ? null : "Please a valid message"}</div>
+              ) : null}
             </Label>
             <Message
+              name="message"
               placeholder="What do you want to say?"
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => {
+                validateForm(e.target);
+                setMessage(e.target.value);
+              }}
               value={message}
             />
+            <span>{message ? messageCount(message) : null}</span>
           </FormWrapper>
         </Form>
       </Wrapper>
@@ -212,6 +240,7 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 0.6rem;
   background-color: rgba(48, 71, 94, 0.8);
   /* border: 2px solid #ddd; */
 `;
@@ -219,14 +248,18 @@ const H3 = styled.h3`
   font-size: 2.3rem;
   color: #ddd;
   text-align: center;
+  margin-top: 1rem;
   margin-bottom: 2.5rem;
-  animation: flexH3 0.8s alternate 2;
   /* border: 1px solid red; */
 
   @keyframes flexH3 {
     to {
       transform: scale(1.4);
     }
+  }
+
+  @media ${device.tabletS} {
+    animation: flexH3 0.8s alternate 2;
   }
 `;
 const FormWrapper = styled.div`

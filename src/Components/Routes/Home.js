@@ -28,7 +28,6 @@ const Container = styled.section`
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  padding-top: 5rem;
   padding-left: -1rem;
   background-repeat: no-repeat;
   background-size: contain;
@@ -36,6 +35,7 @@ const Container = styled.section`
   /* border: 1px solid red; */
 
   @media ${device.tabletS} {
+    padding-top: 5rem;
     background-image: url(${(props) => props.bg});
   }
 `;
