@@ -121,18 +121,19 @@ const Contact = () => {
                 <div> {valMessage ? null : "Please a valid message"}</div>
               ) : null}
             </Label>
-            <Message
-              maxLength="300"
-              name="message"
-              placeholder="What do you want to say?"
-              onChange={(e) => {
-                validateForm(e.target);
-                setMessage(e.target.value);
-              }}
-              value={message}
-            >
-              <span>{message ? messageCount(message) : "300"}</span>
-            </Message>
+            <MessageWrapper>
+              <Message
+                maxLength="300"
+                name="message"
+                placeholder="What do you want to say?"
+                onChange={(e) => {
+                  validateForm(e.target);
+                  setMessage(e.target.value);
+                }}
+                value={message}
+              />
+              <Counter>{message ? messageCount(message) : "300"}</Counter>
+            </MessageWrapper>
           </FormWrapper>
         </Form>
       </Wrapper>
@@ -317,10 +318,19 @@ const Name = styled.input`
 const Email = styled.input`
   ${Input};
 `;
-const Message = styled.textarea`
+const MessageWrapper = styled.div`
   position: relative;
+`;
+const Message = styled.textarea`
   width: 100%;
   max-width: 500px;
   height: 200px;
   font-size: 2rem;
+`;
+const Counter = styled.span`
+  position: absolute;
+  z-index: 2;
+  top: calc(100% - 2rem);
+  left: calc(100% - 3rem);
+  color: red;
 `;
