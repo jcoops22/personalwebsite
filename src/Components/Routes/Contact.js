@@ -122,6 +122,7 @@ const Contact = () => {
               ) : null}
             </Label>
             <Message
+              maxLength="300"
               name="message"
               placeholder="What do you want to say?"
               onChange={(e) => {
@@ -129,8 +130,9 @@ const Contact = () => {
                 setMessage(e.target.value);
               }}
               value={message}
-            />
-            <span>{message ? messageCount(message) : null}</span>
+            >
+              <span>{message ? messageCount(message) : "300"}</span>
+            </Message>
           </FormWrapper>
         </Form>
       </Wrapper>
@@ -316,6 +318,7 @@ const Email = styled.input`
   ${Input};
 `;
 const Message = styled.textarea`
+  position: relative;
   width: 100%;
   max-width: 500px;
   height: 200px;
