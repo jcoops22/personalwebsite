@@ -21,9 +21,13 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [valMessage, setValMessage] = useState(false);
   const [showValidation, setShowValidation] = useState(false);
+  const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setScroll(false);
+    if (scroll) {
+      window.scrollTo(0, 0);
+    }
   }, [valName, valEmail, valMessage]);
 
   // SUBMIT to backend
@@ -63,9 +67,8 @@ const Contact = () => {
       }
     }
   };
-
+  // display remaining characters in message textarea
   const messageCount = (text) => {
-    console.log(300 - text.length);
     return 300 - text.length;
   };
 
@@ -118,7 +121,7 @@ const Contact = () => {
             <Label htmlFor="message">
               <span>Message</span>
               {showValidation ? (
-                <div> {valMessage ? null : "Please a valid message"}</div>
+                <div> {valMessage ? null : "Please add a message"}</div>
               ) : null}
             </Label>
             <MessageWrapper>
@@ -132,7 +135,7 @@ const Contact = () => {
                 }}
                 value={message}
               />
-              <Counter>{message ? messageCount(message) : "300"}</Counter>
+              <Counter>max: {message ? messageCount(message) : "300"}</Counter>
             </MessageWrapper>
           </FormWrapper>
         </Form>
@@ -307,7 +310,7 @@ const Label = styled.label`
   /* border: 1px solid red; */
 
   div {
-    color: red;
+    color: #ddd;
     font-size: 0.8rem;
   }
   /* border: 2px solid #ddd; */
@@ -330,7 +333,11 @@ const Message = styled.textarea`
 const Counter = styled.span`
   position: absolute;
   z-index: 2;
-  top: calc(100% - 2rem);
-  left: calc(100% - 3rem);
+  top: 100%;
+  left: 0;
+  width: 100%;
   color: #f05454;
+  opacity: 0.7;
+  text-align: right;
+  /* border: 1px solid red; */
 `;
