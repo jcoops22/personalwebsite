@@ -44,6 +44,9 @@ const Contact = () => {
           setName("");
           setEmail("");
           setMessage("");
+          setValName(false);
+          setValEmail(false);
+          setValMessage(false);
           window.scrollTo(0, 0);
         })
         .catch((err) => console.log(err));
@@ -140,7 +143,9 @@ const Contact = () => {
           </FormWrapper>
         </Form>
       </Wrapper>
-      <button onClick={() => handleSubmit()}>Send</button>
+      <button onClick={() => handleSubmit()}>
+        Sen<span>d</span>
+      </button>
       <Footer />
     </Container>
   );
@@ -164,12 +169,14 @@ const Container = styled.section`
   /* border: 1px solid red; */
 
   button {
+    position: relative;
     height: 3rem;
     width: 6rem;
     font-size: 1.3rem;
     font-weight: 300;
     color: #222831;
     margin: 0.7rem 0 3rem;
+    overflow: hidden;
     background-color: #f05454;
   }
 
@@ -256,16 +263,17 @@ const H3 = styled.h3`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
+  transform: scale(1.4);
   /* border: 1px solid red; */
 
   @keyframes flexH3 {
     to {
-      transform: scale(1.4);
+      transform: scale(1);
     }
   }
 
   @media ${device.tabletS} {
-    animation: flexH3 0.8s alternate 2;
+    animation: flexH3 0.8s 0.4s forwards;
   }
 `;
 const FormWrapper = styled.div`
@@ -310,8 +318,8 @@ const Label = styled.label`
   /* border: 1px solid red; */
 
   div {
-    color: #ddd;
-    font-size: 0.8rem;
+    color: #ff0f5e;
+    font-size: 1rem;
   }
   /* border: 2px solid #ddd; */
 `;

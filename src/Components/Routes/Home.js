@@ -4,6 +4,7 @@ import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
 import Hero from "../Hero/Hero";
 import StatementsWrapper from "../Intro/StatementsWrapper";
+import Footer from "../Shared/Footer";
 
 const Home = () => {
   const [code] = useState(
@@ -18,6 +19,7 @@ const Home = () => {
       <Navigation />
       <Hero />
       <StatementsWrapper />
+      <Footer />
     </Container>
   );
 };

@@ -21,7 +21,7 @@ const WorkCard = ({ name, delay, bg, desc, showMore, setSelected, work }) => {
   };
 
   return (
-    <Wrapper delay={delay} className="flip-in-ver-right ">
+    <Wrapper delay={delay}>
       <Background bg={bg}>
         <H1>{name}</H1>
       </Background>
@@ -143,13 +143,22 @@ const Wrapper = styled.div`
     border: 2px solid #f05454;
   }
   position: relative;
+  top: 1rem;
+  opacity: 0;
   height: 14rem;
   width: 100%;
   max-width: 450px;
-  opacity: 0;
   border-radius: 5px;
   background-color: #222831;
-  animation-delay: ${(props) => props.delay};
   overflow: hidden;
+  animation: slideUpWrapper 0.6s linear forwards;
+  animation-delay: ${(props) => props.delay};
   /* border: 2px solid #ddd; */
+
+  @keyframes slideUpWrapper {
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
 `;
