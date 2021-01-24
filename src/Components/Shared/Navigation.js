@@ -21,14 +21,26 @@ const Navigation = () => {
       >
         {showNav ? (
           <div>
-            <NavItem delay={"0.1s"} className="tilt-in-right-1">
+            <NavItem delay={"0.1s"}>
               <Link to="/">Home</Link>
+              <UnderlineWrapper>
+                <Underline />
+                <Dot />
+              </UnderlineWrapper>
             </NavItem>
-            <NavItem delay={"0.2s"} className="tilt-in-right-1">
+            <NavItem delay={"0.2s"}>
               <Link to="/work">Work</Link>
+              <UnderlineWrapper>
+                <Underline />
+                <Dot />
+              </UnderlineWrapper>
             </NavItem>
-            <NavItem delay={"0.3s"} className="tilt-in-right-1">
+            <NavItem delay={"0.3s"}>
               <Link to="/contact">Contact</Link>
+              <UnderlineWrapper>
+                <Underline />
+                <Dot />
+              </UnderlineWrapper>
             </NavItem>
           </div>
         ) : null}
@@ -82,16 +94,56 @@ const NavItemsWrapper = styled.div`
   background-color: #ddd;
   transition-duration: 0.4s;
 `;
-const NavItem = styled.p`
-  &:hover {
-    opacity: 0.6;
+const UnderlineWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 13px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition-duration: 0.1s;
+  /* border: 1px solid red; */
+`;
+const Underline = styled.div`
+  position: absolute;
+  left: 100%;
+  height: 3px;
+  width: 100%;
+  transition-delay: 0;
+  background-color: #f05454;
+`;
+const Dot = styled.div`
+  position: absolute;
+  left: calc(100% - 13px);
+  top: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transform: scale(0);
+  background-color: #ddd;
+  border: 2px solid #f05454;
+`;
+const NavItem = styled.div`
+  &:hover ${Underline} {
+    transition-delay: 0.1s;
+    transition-duration: 0.4s;
+    left: 0;
   }
+  &:hover ${Dot} {
+    transition-duration: 0.1s;
+    transform: scale(1);
+  }
+  position: relative;
   color: #f05454;
   font-size: 2rem;
   margin: 0.7rem 0;
-  margin-top: 0;
+  padding-right: 1rem;
   letter-spacing: 0.05em;
   cursor: pointer;
+  overflow: hidden;
+  width: fit-content;
   animation-delay: ${(props) => props.delay};
   /* border: 1px solid red; */
 `;

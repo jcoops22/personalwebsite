@@ -16,16 +16,30 @@ const Footer = () => {
     <Container>
       <Wrapper>
         <Item>
-          <span>GitHub</span>
-          <img src={gitHub} alt="github" />
+          <a
+            href="https://github.com/jcoops22"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>GitHub</span>
+            <img src={gitHub} alt="github" />
+          </a>
         </Item>
         <Item>
-          <span>Gmail</span>
-          <img src={gmail} alt="gmail" />
+          <a href="mailto:%20jcooper232074@gmail.com?subject=Getting%20In%20Touch">
+            <span>Gmail</span>
+            <img src={gmail} alt="gmail" />
+          </a>
         </Item>
         <Item>
-          <span>LinkedIn</span>
-          <img src={linkedin} alt="linked in" />
+          <a
+            href="https://www.linkedin.com/in/jonathancooperwebdeveloper/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>LinkedIn</span>
+            <img src={linkedin} alt="linked in" />
+          </a>
         </Item>
       </Wrapper>
     </Container>
@@ -53,9 +67,6 @@ const Wrapper = styled.div`
   color: #ddd;
 `;
 const Item = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   height: 1.5rem;
   width: fit-content;
   max-width: 5rem;
@@ -64,6 +75,12 @@ const Item = styled.div`
   margin: 2rem;
   cursor: pointer;
   /* border: 1px solid red; */
+
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
   span {
     height: 1rem;
