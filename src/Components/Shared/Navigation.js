@@ -109,10 +109,13 @@ const Underline = styled.div`
   position: absolute;
   left: 100%;
   height: 3px;
-  width: 100%;
+  width: 95%;
+  opacity: 0;
   transition-duration: 0.1s;
   transition-delay: 0;
   background-color: #f05454;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 `;
 const Dot = styled.div`
   position: absolute;
@@ -132,6 +135,7 @@ const NavItem = styled.div`
     transition-delay: 0.1s;
     transition-duration: 0.4s;
     left: 0;
+    opacity: 1;
   }
   &:hover ${Dot} {
     transition-duration: 0.1s;

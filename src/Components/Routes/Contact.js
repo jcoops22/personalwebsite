@@ -184,7 +184,7 @@ const Container = styled.section`
     font-size: 1.3rem;
     font-weight: 300;
     color: #222831;
-    margin: 0.7rem 0 3rem;
+    margin: 1.7rem 0 3rem;
     overflow: hidden;
     border-radius: 3px;
     background-color: #f05454;
@@ -346,14 +346,14 @@ const Email = styled.input`
 `;
 const MessageWrapper = styled.div`
   position: relative;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 const Message = styled.textarea`
   width: 100%;
   max-width: 500px;
   height: 200px;
   font-size: 2rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 const Counter = styled.span`
   position: absolute;
@@ -365,5 +365,5 @@ const Counter = styled.span`
   color: #f05454;
   opacity: 0.7;
   text-align: right;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
