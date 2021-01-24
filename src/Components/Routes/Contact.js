@@ -179,6 +179,8 @@ const Container = styled.section`
       box-shadow: 1px 1px 5px 0 #999;
     }
     position: relative;
+    text-align: left;
+    padding-left: 1.5rem;
     height: 3rem;
     width: 6rem;
     font-size: 1.3rem;
