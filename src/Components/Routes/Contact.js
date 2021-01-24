@@ -22,6 +22,7 @@ const Contact = () => {
   const [valMessage, setValMessage] = useState(false);
   const [showValidation, setShowValidation] = useState(false);
   const [scroll, setScroll] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     setScroll(false);
@@ -47,7 +48,8 @@ const Contact = () => {
           setValName(false);
           setValEmail(false);
           setValMessage(false);
-          window.scrollTo(0, 0);
+          setSubmitted(true);
+          // window.scrollTo(0, 0);
         })
         .catch((err) => console.log(err));
     } else {
@@ -138,13 +140,17 @@ const Contact = () => {
                 }}
                 value={message}
               />
-              <Counter>max: {message ? messageCount(message) : "300"}</Counter>
+              <Counter>
+                characters left ({message ? messageCount(message) : "300"})
+              </Counter>
             </MessageWrapper>
           </FormWrapper>
         </Form>
       </Wrapper>
       <button onClick={() => handleSubmit()}>
-        Sen<span>d</span>
+        Sen
+        <BtnLetter top={submitted ? "0.55rem" : "-100%"}>t</BtnLetter>
+        <BtnLetter top={submitted ? "100%" : "0.55rem"}>d</BtnLetter>
       </button>
       <Footer />
     </Container>
@@ -169,6 +175,9 @@ const Container = styled.section`
   /* border: 1px solid red; */
 
   button {
+    &:hover {
+      box-shadow: 1px 1px 5px 0 #999;
+    }
     position: relative;
     height: 3rem;
     width: 6rem;
@@ -177,12 +186,18 @@ const Container = styled.section`
     color: #222831;
     margin: 0.7rem 0 3rem;
     overflow: hidden;
+    border-radius: 3px;
     background-color: #f05454;
   }
 
   @media ${device.tabletS} {
     justify-content: center;
   }
+`;
+const BtnLetter = styled.span`
+  position: absolute;
+  transition-duration: 1s;
+  top: ${(props) => props.top};
 `;
 const HeaderWrapper = styled.div`
   position: absolute;

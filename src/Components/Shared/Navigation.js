@@ -103,7 +103,6 @@ const UnderlineWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  transition-duration: 0.1s;
   /* border: 1px solid red; */
 `;
 const Underline = styled.div`
@@ -111,6 +110,7 @@ const Underline = styled.div`
   left: 100%;
   height: 3px;
   width: 100%;
+  transition-duration: 0.1s;
   transition-delay: 0;
   background-color: #f05454;
 `;
@@ -122,6 +122,8 @@ const Dot = styled.div`
   height: 13px;
   border-radius: 50%;
   transform: scale(0);
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
   background-color: #ddd;
   border: 2px solid #f05454;
 `;

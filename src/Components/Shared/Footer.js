@@ -62,6 +62,7 @@ const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   color: #ddd;
@@ -72,7 +73,7 @@ const Item = styled.div`
   max-width: 5rem;
   font-size: 0.8rem;
   font-weight: 200;
-  margin: 2rem;
+  margin: 0 2rem;
   cursor: pointer;
   /* border: 1px solid red; */
 
