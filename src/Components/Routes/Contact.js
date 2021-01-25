@@ -168,7 +168,7 @@ const Contact = () => {
           animation={submitted ? "jumpSentUp" : "none"}
           color={submitted ? "green" : "#222831"}
         >
-          Sent
+          <span>{submitted ? "s" : "S"}</span>ent
         </Sent>
       </Button>
       <Footer />
@@ -448,7 +448,7 @@ const Sent = styled.span`
       color: #f05454;
       font-size: 2rem;
       font-weight: 400;
-      text-transform: lowercase;
+      /* text-transform: lowercase; */
     }
   }
 `;
