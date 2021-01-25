@@ -418,14 +418,14 @@ const Button = styled.button`
 `;
 const LetterWrapper = styled.span`
   position: relative;
+  top: 0.1rem;
   width: 1rem;
-  height: 1.5rem;
+  height: 1.6rem;
   display: inline-block;
   overflow: hidden;
   opacity: ${(props) => props.opacity};
   transition-delay: 1s;
   transition-duration: 0.4s;
-  margin-top: 0.1rem;
   /* border: 1px solid red; */
 `;
 const BtnLetter = styled.span`
