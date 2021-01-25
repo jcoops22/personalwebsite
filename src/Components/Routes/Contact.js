@@ -88,7 +88,12 @@ const Contact = () => {
       </HeaderWrapper>
       <Wrapper bg={helloPic}>
         <Form>
-          <H3>Drop me a line.</H3>
+          <H3 opacity={submitted ? "0" : "1"}>Drop me a line.</H3>
+          <Confirmation opacity={submitted ? "1" : "0"}>
+            <div>
+              Thank you! Your message has been <span></span>.
+            </div>
+          </Confirmation>
           <FormWrapper height={submitted ? "0" : "390px"}>
             <Label htmlFor="name">
               <span>Name</span>
@@ -188,67 +193,6 @@ const Container = styled.section`
   background-color: #30475e;
   /* border: 1px solid red; */
 `;
-const Button = styled.button`
-  &:focus {
-    outline: none;
-  }
-  position: relative;
-  top: ${(props) => props.top};
-  text-align: left;
-  padding-left: 1.7rem; //center the text since letter is absolutely positioned
-  height: 3rem;
-  width: 6rem;
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: ${(props) => props.color};
-  margin: 2rem 0 3rem;
-  border-radius: 3px;
-  transition-duration: 0.4s;
-  transition-delay: 1s;
-  background-color: ${(props) => props.bg};
-
-  @media ${device.tabletS} {
-    justify-content: center;
-
-    button {
-      margin-top: 1rem;
-    }
-  }
-`;
-const LetterWrapper = styled.span`
-  position: relative;
-  width: 1rem;
-  height: 1.5rem;
-  display: inline-block;
-  overflow: hidden;
-  opacity: ${(props) => props.opacity};
-  transition-delay: 1s;
-  transition-duration: 0.4s;
-  /* border: 1px solid red; */
-`;
-const BtnLetter = styled.span`
-  position: absolute;
-  transition-duration: 1s;
-  top: ${(props) => props.top};
-  color: ${(props) => props.color};
-`;
-const Sent = styled.span`
-  position: absolute;
-  z-index: -1;
-  top: 0.53rem; //line up with existing "Sent"
-  left: 1.7rem; //to mimic padding of button
-  transition-duration: 1s;
-  animation: ${(props) => props.animation} 1s 1s forwards;
-
-  @keyframes jumpSentUp {
-    to {
-      top: -50vh;
-      z-index: 1;
-      color: green;
-      text-transform: lowercase;
-    }
-  }
-`;
 const HeaderWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -329,6 +273,8 @@ const H3 = styled.h3`
   margin-top: 1rem;
   margin-bottom: 2.5rem;
   transform: scale(1.3);
+  opacity: ${(props) => props.opacity};
+  transition-duration: 1s;
   /* border: 1px solid red; */
 
   @keyframes flexH3 {
@@ -339,6 +285,31 @@ const H3 = styled.h3`
 
   @media ${device.tabletS} {
     animation: flexH3 0.8s 0.4s forwards;
+  }
+`;
+const Confirmation = styled.h3`
+  position: absolute;
+  top: 230px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  color: green;
+  opacity: ${(props) => props.opacity};
+  transition-duration: 1s;
+  transition-delay: 1s;
+  /* border: 1px solid red; */
+
+  div {
+    width: 250px;
+    padding-left: 1.7rem;
+    /* border: 1px solid red; */
+
+    span {
+      display: inline-block;
+      width: 4rem;
+    }
   }
 `;
 const FormWrapper = styled.div`
@@ -420,4 +391,63 @@ const Counter = styled.span`
   opacity: 0.7;
   text-align: right;
   /* border: 1px solid red; */
+`;
+const Button = styled.button`
+  &:focus {
+    outline: none;
+  }
+  position: relative;
+  top: ${(props) => props.top};
+  text-align: left;
+  padding-left: 1.7rem; //center the text since letter is absolutely positioned
+  height: 3rem;
+  width: 6rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: ${(props) => props.color};
+  margin: 1rem 0 3rem;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  transition-delay: 1s;
+  background-color: ${(props) => props.bg};
+
+  @media ${device.tabletS} {
+    /* margin-top: 1rem; */
+  }
+`;
+const LetterWrapper = styled.span`
+  position: relative;
+  width: 1rem;
+  height: 1.5rem;
+  display: inline-block;
+  overflow: hidden;
+  opacity: ${(props) => props.opacity};
+  transition-delay: 1s;
+  transition-duration: 0.4s;
+  /* border: 1px solid red; */
+`;
+const BtnLetter = styled.span`
+  position: absolute;
+  transition-duration: 1s;
+  top: ${(props) => props.top};
+  color: ${(props) => props.color};
+`;
+const Sent = styled.span`
+  position: absolute;
+  z-index: -1;
+  top: 0.53rem; //line up with existing "Sent"
+  left: 1.7rem; //to mimic padding of button
+  transition-duration: 1s;
+  animation: ${(props) => props.animation} 1s 1s forwards;
+
+  @keyframes jumpSentUp {
+    to {
+      top: -381px;
+      z-index: 1;
+      color: green;
+      font-size: 2rem;
+      font-weight: 400;
+      text-transform: lowercase;
+    }
+  }
 `;
