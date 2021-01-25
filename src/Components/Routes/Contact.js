@@ -426,7 +426,7 @@ const LetterWrapper = styled.span`
   opacity: ${(props) => props.opacity};
   transition-delay: 1s;
   transition-duration: 0.4s;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 `;
 const BtnLetter = styled.span`
   position: absolute;
