@@ -289,16 +289,17 @@ const H3 = styled.h3`
 `;
 const Confirmation = styled.h3`
   position: absolute;
-  top: 230px;
+  top: 40vh;
   left: 0;
   display: flex;
   justify-content: center;
   width: 100%;
   font-size: 2rem;
-  color: green;
+  color: #f05454;
   opacity: ${(props) => props.opacity};
-  transition-duration: 1s;
+  transition-duration: 1.8s;
   transition-delay: 1s;
+  background-color: #ddd;
   /* border: 1px solid red; */
 
   div {
@@ -442,9 +443,9 @@ const Sent = styled.span`
 
   @keyframes jumpSentUp {
     to {
-      top: -381px;
+      top: -40vh;
       z-index: 1;
-      color: green;
+      color: #f05454;
       font-size: 2rem;
       font-weight: 400;
       text-transform: lowercase;
