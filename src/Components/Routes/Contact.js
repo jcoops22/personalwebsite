@@ -161,8 +161,8 @@ const Contact = () => {
       >
         Sen
         <LetterWrapper opacity={submitted ? "0" : "1"}>
-          <BtnLetter top={submitted ? "0.05rem" : "-110%"}>t</BtnLetter>
-          <BtnLetter top={submitted ? "110%" : "0.05rem"}>d</BtnLetter>
+          <BtnLetter top={submitted ? "-0.5rem" : "-200%"}>t</BtnLetter>
+          <BtnLetter top={submitted ? "200%" : "-0.5rem"}>d</BtnLetter>
         </LetterWrapper>
         <Sent
           animation={submitted ? "jumpSentUp" : "none"}
@@ -411,22 +411,18 @@ const Button = styled.button`
   transition-duration: 0.4s;
   transition-delay: 1s;
   background-color: ${(props) => props.bg};
-
-  @media ${device.tabletS} {
-    /* margin-top: 1rem; */
-  }
 `;
 const LetterWrapper = styled.span`
   position: relative;
   top: 0.1rem;
   width: 1rem;
-  height: 1.6rem;
+  height: 1rem;
   display: inline-block;
   overflow: hidden;
   opacity: ${(props) => props.opacity};
   transition-delay: 1s;
   transition-duration: 0.4s;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 const BtnLetter = styled.span`
   position: absolute;
