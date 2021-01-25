@@ -264,7 +264,7 @@ const Form = styled.div`
   align-items: center;
   padding: 0 0.6rem;
   background-color: rgba(48, 71, 94, 0.8);
-  border: 2px solid #ddd;
+  /* border: 2px solid #ddd; */
 `;
 const H3 = styled.h3`
   font-size: 2.3rem;
