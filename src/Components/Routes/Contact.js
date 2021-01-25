@@ -297,7 +297,7 @@ const Confirmation = styled.h3`
   font-size: 2rem;
   color: #f05454;
   opacity: ${(props) => props.opacity};
-  transition-duration: 1.8s;
+  transition-duration: 1.6s;
   transition-delay: 1s;
   background-color: #ddd;
   /* border: 1px solid red; */
