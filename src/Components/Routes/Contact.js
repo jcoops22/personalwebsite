@@ -248,7 +248,7 @@ const Headline = styled.h1`
 `;
 const Wrapper = styled.div`
   width: 100%;
-  min-height: 80vh;
+  min-height: 38rem;
   background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
   background-size: contain;
@@ -256,7 +256,7 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const Form = styled.div`
-  min-height: 80vh;
+  min-height: 38rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -264,7 +264,7 @@ const Form = styled.div`
   align-items: center;
   padding: 0 0.6rem;
   background-color: rgba(48, 71, 94, 0.8);
-  /* border: 2px solid #ddd; */
+  border: 2px solid #ddd;
 `;
 const H3 = styled.h3`
   font-size: 2.3rem;
@@ -289,7 +289,7 @@ const H3 = styled.h3`
 `;
 const Confirmation = styled.h3`
   position: absolute;
-  top: 40vh;
+  top: 18rem;
   left: 0;
   display: flex;
   justify-content: center;
@@ -304,7 +304,7 @@ const Confirmation = styled.h3`
 
   div {
     width: 250px;
-    padding-left: 1.7rem;
+    padding-left: 1.75rem;
     /* border: 1px solid red; */
 
     span {
@@ -425,6 +425,7 @@ const LetterWrapper = styled.span`
   opacity: ${(props) => props.opacity};
   transition-delay: 1s;
   transition-duration: 0.4s;
+  margin-top: 0.1rem;
   /* border: 1px solid red; */
 `;
 const BtnLetter = styled.span`
@@ -440,10 +441,11 @@ const Sent = styled.span`
   left: 1.7rem; //to mimic padding of button
   transition-duration: 1s;
   animation: ${(props) => props.animation} 1s 1s forwards;
+  /* border: 1px solid red; */
 
   @keyframes jumpSentUp {
     to {
-      top: -40vh;
+      top: -20.01rem;
       z-index: 1;
       color: #f05454;
       font-size: 2rem;
