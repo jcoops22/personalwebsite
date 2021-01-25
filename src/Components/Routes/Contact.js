@@ -414,7 +414,7 @@ const Button = styled.button`
 `;
 const LetterWrapper = styled.span`
   position: relative;
-  top: 0.1rem;
+  top: 0.12rem;
   width: 1rem;
   height: 1rem;
   display: inline-block;
