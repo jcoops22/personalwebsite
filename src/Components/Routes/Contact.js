@@ -186,7 +186,7 @@ const Container = styled.section`
     font-size: 1.3rem;
     font-weight: 300;
     color: #222831;
-    margin: 1.7rem 0 3rem;
+    margin: 2rem 0 3rem;
     overflow: hidden;
     border-radius: 3px;
     background-color: #f05454;
@@ -194,6 +194,10 @@ const Container = styled.section`
 
   @media ${device.tabletS} {
     justify-content: center;
+
+    button {
+      margin-top: 1rem;
+    }
   }
 `;
 const BtnLetter = styled.span`
@@ -280,7 +284,7 @@ const H3 = styled.h3`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
-  transform: scale(1.4);
+  transform: scale(1.3);
   /* border: 1px solid red; */
 
   @keyframes flexH3 {
@@ -353,7 +357,7 @@ const MessageWrapper = styled.div`
 const Message = styled.textarea`
   width: 100%;
   max-width: 500px;
-  height: 200px;
+  height: 150px;
   font-size: 2rem;
   /* border: 1px solid red; */
 `;
