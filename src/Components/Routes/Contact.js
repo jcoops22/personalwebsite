@@ -168,7 +168,7 @@ const Contact = () => {
           animation={submitted ? "jumpSentUp" : "none"}
           color={submitted ? "green" : "#222831"}
         >
-          <span>{submitted ? "s" : "S"}</span>ent
+          sent
         </Sent>
       </Button>
       <Footer />
@@ -400,7 +400,7 @@ const Button = styled.button`
   position: relative;
   top: ${(props) => props.top};
   text-align: left;
-  padding-left: 1.7rem; //center the text since letter is absolutely positioned
+  padding-left: 1.5rem; //center the text since letter is absolutely positioned
   height: 3rem;
   width: 6rem;
   font-size: 1.3rem;
@@ -448,7 +448,6 @@ const Sent = styled.span`
       color: #f05454;
       font-size: 2rem;
       font-weight: 400;
-      /* text-transform: lowercase; */
     }
   }
 `;
