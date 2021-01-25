@@ -10,9 +10,7 @@ const Pictures = ({ pics }) => {
   const [rigthArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210527/New%20Portfolio%20Site/Projects/right-arrow-svgrepo-com_cuk6lt.svg"
   );
-  useEffect(() => {
-    console.log(index);
-  }, [index]);
+  useEffect(() => {}, [index]);
 
   return (
     <Container>

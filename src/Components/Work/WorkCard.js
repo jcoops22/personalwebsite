@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 
-const WorkCard = ({ name, delay, bg, desc, showMore, setSelected, work }) => {
+const WorkCard = ({
+  name,
+  delay,
+  bg,
+  desc,
+  showMore,
+  setSelected,
+  work,
+  ind,
+}) => {
   const [previewArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611124735/New%20Portfolio%20Site/Icons/Work/right-arrow-svgrepo-com_pmbhi2.svg"
   );
+  const [loading, setLoading] = useState(true);
 
   const getShortDescription = (desc) => {
     // take the first senence of descrption
@@ -20,9 +30,20 @@ const WorkCard = ({ name, delay, bg, desc, showMore, setSelected, work }) => {
     return f + s + t;
   };
 
+  useEffect(() => {
+    let card = document.querySelector(`#bg${ind}`);
+    let preLoad = document.createElement("img");
+    preLoad.src = bg;
+    console.log(card, preLoad);
+    preLoad.addEventListener("load", () => {
+      setLoading(false);
+      preLoad = null;
+    });
+  }, []);
+
   return (
     <Wrapper delay={delay}>
-      <Background bg={bg}>
+      <Background bg={loading ? null : bg} id={`bg${ind}`}>
         <H1>{name}</H1>
       </Background>
       <Desc>{getShortDescription(desc)}</Desc>

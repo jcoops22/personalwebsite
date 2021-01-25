@@ -19,10 +19,14 @@ const Work = () => {
   );
   const [showMore, setShowMore] = useState(false);
   const [selected, setSelected] = useState(null);
+  const [workData, setWorkData] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    if (!workData) {
+      setWorkData(workItems);
+    }
+  }, [workData]);
 
   return (
     <Container bg={workImage}>
@@ -37,23 +41,31 @@ const Work = () => {
           All applications are built with mobile first design methodologies
         </H3>
       </HeaderWrapper>
-      <CardWrapperSection height={window.innerHeight >= 850 ? "100%" : "620px"}>
-        {workItems.map((work, ind) => (
-          <CardWrapper key={ind}>
-            <WorkCard
-              showMore={setShowMore}
-              work={work}
-              name={work.name}
-              bg={work.bg}
-              desc={work.desc}
-              delay={`${ind * 0.2}s`}
-              key={work.name}
-              setSelected={setSelected}
-            />
-          </CardWrapper>
-        ))}
-        {showMore ? <InfoModal work={selected} showMore={setShowMore} /> : null}
-      </CardWrapperSection>
+      {workData ? (
+        <CardWrapperSection
+          height={window.innerHeight >= 850 ? "100%" : "620px"}
+        >
+          {workData.map((work, ind) => (
+            <CardWrapper key={ind}>
+              <WorkCard
+                className="cards"
+                showMore={setShowMore}
+                work={work}
+                name={work.name}
+                bg={work.bg}
+                desc={work.desc}
+                delay={`${ind * 0.2}s`}
+                key={work.name}
+                ind={ind}
+                setSelected={setSelected}
+              />
+            </CardWrapper>
+          ))}
+          {showMore ? (
+            <InfoModal work={selected} showMore={setShowMore} />
+          ) : null}
+        </CardWrapperSection>
+      ) : null}
       <Footer />
     </Container>
   );
@@ -83,7 +95,6 @@ const Overlay = styled.div`
 const CardWrapperSection = styled.div`
   position: relative;
   z-index: 1;
-  height: 100vh;
   padding: 10rem 1rem 1rem;
   display: flex;
   flex-direction: row;

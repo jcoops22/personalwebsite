@@ -108,7 +108,7 @@ const UnderlineWrapper = styled.div`
 const Underline = styled.div`
   position: absolute;
   left: 100%;
-  height: 3px;
+  height: 2px;
   width: 95%;
   opacity: 0;
   transition-duration: 0.1s;
