@@ -89,7 +89,7 @@ const Contact = () => {
       <Wrapper bg={helloPic}>
         <Form>
           <H3>Drop me a line.</H3>
-          <FormWrapper>
+          <FormWrapper height={submitted ? "0" : "390px"}>
             <Label htmlFor="name">
               <span>Name</span>
               {showValidation ? (
@@ -147,11 +147,25 @@ const Contact = () => {
           </FormWrapper>
         </Form>
       </Wrapper>
-      <button onClick={() => handleSubmit()}>
+      <Button
+        onClick={() => handleSubmit()}
+        top={submitted ? "-20vrem" : "0"}
+        overflow={submitted ? "visible" : "hidden"}
+        color={submitted ? "#30475e" : "#222831"}
+        bg={submitted ? "#30475e" : "#f05454"}
+      >
         Sen
-        <BtnLetter top={submitted ? "0.55rem" : "-100%"}>t</BtnLetter>
-        <BtnLetter top={submitted ? "100%" : "0.55rem"}>d</BtnLetter>
-      </button>
+        <LetterWrapper opacity={submitted ? "0" : "1"}>
+          <BtnLetter top={submitted ? "0.05rem" : "-110%"}>t</BtnLetter>
+          <BtnLetter top={submitted ? "110%" : "0.05rem"}>d</BtnLetter>
+        </LetterWrapper>
+        <Sent
+          animation={submitted ? "jumpSentUp" : "none"}
+          color={submitted ? "green" : "#222831"}
+        >
+          Sent
+        </Sent>
+      </Button>
       <Footer />
     </Container>
   );
@@ -173,24 +187,25 @@ const Container = styled.section`
   padding-top: 5rem;
   background-color: #30475e;
   /* border: 1px solid red; */
-
-  button {
-    &:hover {
-      box-shadow: 1px 1px 5px 0 #999;
-    }
-    position: relative;
-    text-align: left;
-    padding-left: 1.5rem;
-    height: 3rem;
-    width: 6rem;
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: #222831;
-    margin: 2rem 0 3rem;
-    overflow: hidden;
-    border-radius: 3px;
-    background-color: #f05454;
+`;
+const Button = styled.button`
+  &:focus {
+    outline: none;
   }
+  position: relative;
+  top: ${(props) => props.top};
+  text-align: left;
+  padding-left: 1.7rem; //center the text since letter is absolutely positioned
+  height: 3rem;
+  width: 6rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: ${(props) => props.color};
+  margin: 2rem 0 3rem;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  transition-delay: 1s;
+  background-color: ${(props) => props.bg};
 
   @media ${device.tabletS} {
     justify-content: center;
@@ -200,10 +215,39 @@ const Container = styled.section`
     }
   }
 `;
+const LetterWrapper = styled.span`
+  position: relative;
+  width: 1rem;
+  height: 1.5rem;
+  display: inline-block;
+  overflow: hidden;
+  opacity: ${(props) => props.opacity};
+  transition-delay: 1s;
+  transition-duration: 0.4s;
+  /* border: 1px solid red; */
+`;
 const BtnLetter = styled.span`
   position: absolute;
   transition-duration: 1s;
   top: ${(props) => props.top};
+  color: ${(props) => props.color};
+`;
+const Sent = styled.span`
+  position: absolute;
+  z-index: -1;
+  top: 0.53rem; //line up with existing "Sent"
+  left: 1.7rem; //to mimic padding of button
+  transition-duration: 1s;
+  animation: ${(props) => props.animation} 1s 1s forwards;
+
+  @keyframes jumpSentUp {
+    to {
+      top: -50vh;
+      z-index: 1;
+      color: green;
+      text-transform: lowercase;
+    }
+  }
 `;
 const HeaderWrapper = styled.div`
   position: absolute;
@@ -260,6 +304,7 @@ const Headline = styled.h1`
 `;
 const Wrapper = styled.div`
   width: 100%;
+  min-height: 80vh;
   background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
   background-size: contain;
@@ -267,9 +312,8 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const Form = styled.div`
-  height: 100%;
-  width: 100%;
   min-height: 80vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -299,20 +343,24 @@ const H3 = styled.h3`
 `;
 const FormWrapper = styled.div`
   width: 100%;
+  height: ${(props) => props.height};
   max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   opacity: 0;
+  overflow: hidden;
   animation: fadeFormWrapperIn 0.7s linear forwards;
+  transition-duration: 1s;
   /* border: 1px solid red; */
 
   input,
   textarea {
     background-color: #ddd;
     color: #30475e;
-    padding: 0.2rem 0.7rem;
+    padding: 0.4rem 0.7rem;
     font-size: 1.4rem;
+    font-weight: 300;
     border-radius: 3px;
 
     ::placeholder {
@@ -357,14 +405,14 @@ const MessageWrapper = styled.div`
 const Message = styled.textarea`
   width: 100%;
   max-width: 500px;
-  height: 150px;
+  height: 135px;
   font-size: 2rem;
   /* border: 1px solid red; */
 `;
 const Counter = styled.span`
   position: absolute;
   z-index: 2;
-  top: 100%;
+  top: 95%;
   left: 0;
   width: 100%;
   height: 2rem;
