@@ -11,6 +11,9 @@ const InfoModal = ({ showMore, work }) => {
   const [codeIconLink] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611196511/New%20Portfolio%20Site/Projects/code-svgrepo-com_iuuqql.svg"
   );
+  const [imagesIcon] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611628602/New%20Portfolio%20Site/Projects/polaroid-pictures-svgrepo-com_c7tggw.svg"
+  );
   useEffect(() => {
     if (work.languages) {
       setLanguages(work.languages);
@@ -23,16 +26,22 @@ const InfoModal = ({ showMore, work }) => {
       <HeaderTechAndPictures>
         <HeaderAndTech>
           {work ? <H1 font={work.font}>{work.name}</H1> : null}
-          {languages.length ? (
-            <Languages>
-              <span>Tech:</span>
-              {languages.map((lang, ind) => (
-                <Li key={ind} delay={ind * 0.2}>
-                  {lang.name} <img src={lang.icon} alt={lang.name} />
-                </Li>
-              ))}
-            </Languages>
-          ) : null}
+          <TechAndPics>
+            {languages.length ? (
+              <Languages>
+                <span>Tech:</span>
+                {languages.map((lang, ind) => (
+                  <Li key={ind} delay={ind * 0.2}>
+                    {lang.name} <img src={lang.icon} alt={lang.name} />
+                  </Li>
+                ))}
+              </Languages>
+            ) : null}
+            <ShowPictures>
+              <img src={imagesIcon} alt="show screenshots" />
+              <span>Screenshots</span>
+            </ShowPictures>
+          </TechAndPics>
         </HeaderAndTech>
         <Pictures pics={work.screenshots} />
       </HeaderTechAndPictures>
@@ -81,14 +90,15 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 3;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   opacity: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: #ddd;
+  padding-top: 5rem;
   background-color: rgba(0, 0, 0, 0.8);
   animation: fadeModalIn 0.5s linear forwards;
   /* border: 2px solid white; */
@@ -100,7 +110,7 @@ const Container = styled.div`
   }
 
   @media ${device.tabletS} {
-    padding-top: 2rem;
+    padding-top: 8rem;
   }
 `;
 const Close = styled.span`
@@ -119,24 +129,26 @@ const Close = styled.span`
 `;
 const HeaderTechAndPictures = styled.div`
   width: 100%;
+  height: 18rem;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  padding-top: 5rem;
   /* border: 1px solid green; */
 `;
 const HeaderAndTech = styled.div`
   width: 100%;
-  max-height: 270px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
+  align-items: flex-start;
+  /* border: 1px solid blue; */
 
   @media ${device.tabletS} {
-    width: 40%;
-    align-items: flex-start;
+    padding-left: 2rem;
+  }
+  @media ${device.laptop} {
+    width: 50%;
   }
 `;
 const H1 = styled.h1`
@@ -167,12 +179,26 @@ const H1 = styled.h1`
     font-size: 3rem;
   }
 `;
+const TechAndPics = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid white; */
+
+  @media ${device.tabletS} {
+    flex-direction: row;
+  }
+`;
 const Languages = styled.ul`
   width: 100%;
+  height: 6rem;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 1rem;
   padding: 0 1rem;
+  /* border: 1px solid red; */
 
   span {
     display: block;
@@ -191,10 +217,35 @@ const Languages = styled.ul`
   }
 
   @media ${device.tabletS} {
+    height: 10rem;
     padding: 0;
   }
   @media ${device.tablet} {
     width: 80%;
+  }
+`;
+const ShowPictures = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-top: 3rem;
+  cursor: pointer;
+  /* border: 1px solid yellow; */
+
+  img {
+    width: 3rem;
+    margin-right: 1rem;
+    padding: 0.2rem;
+    background-color: #f05454;
+    border-radius: 50%;
+  }
+
+  @media ${device.tabletS} {
+    width: 55%;
+  }
+  @media ${device.laptop} {
+    display: none;
   }
 `;
 const Li = styled.li`
@@ -219,11 +270,12 @@ const Li = styled.li`
 `;
 const DescAndLinks = styled.div`
   width: 100%;
+  height: 20rem;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
+  align-items: flex-start;
+  padding-bottom: 1rem;
   /* border: 1px solid greenyellow; */
 `;
 const Description = styled.div`
@@ -231,10 +283,10 @@ const Description = styled.div`
   top: 0;
   width: 80%;
   max-width: 500px;
-  max-height: 250px;
+  max-height: 300px;
   overflow: scroll;
   font-size: 1.3rem;
-  display: flex;
+  display: none;
   align-items: flex-start;
   padding: 0.8rem 1rem;
   color: #ddd;
@@ -257,6 +309,9 @@ const Description = styled.div`
     }
   }
 
+  @media ${device.mobileL} {
+    display: initial;
+  }
   @media ${device.laptop} {
     width: 50%;
   }
@@ -264,10 +319,10 @@ const Description = styled.div`
 const LinksWrapper = styled.div`
   position: relative;
   left: -50%;
-  width: 50%;
+  width: 100%;
   max-width: 600px;
+  margin-top: 2rem;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   animation: slideInLinksWrapper 0.6s forwards;
@@ -312,8 +367,8 @@ const LinksWrapper = styled.div`
     }
   }
 
-  @media ${device.tablet} {
-    /* flex-direction: row; */
+  @media ${device.mobileM} {
+    flex-direction: column;
   }
 `;
 const LinkDiv = styled.div`
@@ -349,6 +404,12 @@ const LinkText = styled.div`
     }
   }
 
+  @media ${device.mobileM} {
+    display: initial;
+  }
+  @media ${device.mobileL} {
+    display: none;
+  }
   @media ${device.tabletM} {
     display: initial;
   }

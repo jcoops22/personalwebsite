@@ -95,7 +95,7 @@ const Overlay = styled.div`
 const CardWrapperSection = styled.div`
   position: relative;
   z-index: 1;
-  padding: 10rem 1rem 1rem;
+  padding: 10rem 1rem 5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

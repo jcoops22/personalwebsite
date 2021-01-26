@@ -293,7 +293,9 @@ const Confirmation = styled.h3`
   left: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  height: 12rem;
   font-size: 2rem;
   color: #f05454;
   opacity: ${(props) => props.opacity};
@@ -441,7 +443,7 @@ const Sent = styled.span`
 
   @keyframes jumpSentUp {
     to {
-      top: -20.01rem;
+      top: -18.5rem;
       z-index: 1;
       color: #f05454;
       font-size: 2rem;

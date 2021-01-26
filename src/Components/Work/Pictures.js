@@ -82,11 +82,13 @@ const Container = styled.div`
   left: 0;
   width: 100%;
   display: none;
+  justify-content: center;
+  align-items: center;
   animation: slideInPictures 0.8s forwards;
   /* border: 1px solid red; */
 
-  @media ${device.tabletS} {
-    display: initial;
+  @media ${device.laptop} {
+    display: flex;
     width: 50%;
   }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
+import Loader from "../Shared/Loader";
 
 const WorkCard = ({
   name,
@@ -43,22 +44,28 @@ const WorkCard = ({
 
   return (
     <Wrapper delay={delay}>
-      <Background bg={loading ? null : bg} id={`bg${ind}`}>
-        <H1>{name}</H1>
-      </Background>
-      <Desc>{getShortDescription(desc)}</Desc>
-      <BigH1>{getInitials(name)}</BigH1>
-      <Bubble>
-        <span
-          onClick={() => {
-            showMore(true);
-            setSelected(work);
-          }}
-        >
-          See more
-          <img src={previewArrow} alt="see more" />
-        </span>
-      </Bubble>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <Background bg={loading ? null : bg} id={`bg${ind}`}>
+            <H1>{name}</H1>
+          </Background>
+          <Desc>{getShortDescription(desc)}</Desc>
+          <BigH1>{getInitials(name)}</BigH1>
+          <Bubble>
+            <span
+              onClick={() => {
+                showMore(true);
+                setSelected(work);
+              }}
+            >
+              See more
+              <img src={previewArrow} alt="see more" />
+            </span>
+          </Bubble>
+        </div>
+      )}
     </Wrapper>
   );
 };

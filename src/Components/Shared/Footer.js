@@ -53,9 +53,9 @@ const Container = styled.footer`
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 6rem;
   background-color: #222831;
-  margin: 0;
+  padding: 0.5rem 0;
+
   /* border: 1px solid green; */
 `;
 const Wrapper = styled.div`
@@ -73,7 +73,7 @@ const Item = styled.div`
   max-width: 5rem;
   font-size: 0.8rem;
   font-weight: 200;
-  margin: 0 2rem;
+  margin: 0.5rem 2rem 0;
   cursor: pointer;
   /* border: 1px solid red; */
 
@@ -92,5 +92,9 @@ const Item = styled.div`
     width: 0.8rem;
     margin-left: 0.2rem;
     /* border: 1px solid red; */
+  }
+
+  @media ${device.tabletS} {
+    margin: 1rem 2rem 0;
   }
 `;

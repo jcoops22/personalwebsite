@@ -22,7 +22,7 @@ const Navigation = () => {
         {showNav ? (
           <div>
             <NavItem delay={"0.1s"}>
-              <Link to="/">Home</Link>
+              <Link to="/">About</Link>
               <UnderlineWrapper>
                 <Underline />
                 <Dot />
@@ -108,7 +108,7 @@ const UnderlineWrapper = styled.div`
 const Underline = styled.div`
   position: absolute;
   left: 100%;
-  height: 2px;
+  height: 3px;
   width: 95%;
   opacity: 0;
   transition-duration: 0.1s;
