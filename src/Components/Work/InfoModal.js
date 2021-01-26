@@ -90,6 +90,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 3;
+  height: 58rem;
   min-height: 100vh;
   width: 100vw;
   opacity: 0;
