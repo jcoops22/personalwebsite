@@ -3,16 +3,7 @@ import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Loader from "../Shared/Loader";
 
-const WorkCard = ({
-  name,
-  delay,
-  bg,
-  desc,
-  showMore,
-  setSelected,
-  work,
-  ind,
-}) => {
+const WorkCard = ({ name, delay, bg, desc, showMore, setSelected, work }) => {
   const [previewArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611124735/New%20Portfolio%20Site/Icons/Work/right-arrow-svgrepo-com_pmbhi2.svg"
   );
@@ -32,10 +23,8 @@ const WorkCard = ({
   };
 
   useEffect(() => {
-    let card = document.querySelector(`#bg${ind}`);
     let preLoad = document.createElement("img");
     preLoad.src = bg;
-    console.log(card, preLoad);
     preLoad.addEventListener("load", () => {
       setLoading(false);
       preLoad = null;
@@ -43,12 +32,12 @@ const WorkCard = ({
   }, []);
 
   return (
-    <Wrapper delay={delay}>
+    <Wrapper>
       {loading ? (
         <Loader />
       ) : (
-        <div>
-          <Background bg={loading ? null : bg} id={`bg${ind}`}>
+        <Content delay={delay}>
+          <Background bg={loading ? null : bg}>
             <H1>{name}</H1>
           </Background>
           <Desc>{getShortDescription(desc)}</Desc>
@@ -64,7 +53,7 @@ const WorkCard = ({
               <img src={previewArrow} alt="see more" />
             </span>
           </Bubble>
-        </div>
+        </Content>
       )}
     </Wrapper>
   );
@@ -178,12 +167,15 @@ const Wrapper = styled.div`
   border-radius: 5px;
   background-color: #222831;
   overflow: hidden;
-  /* opacity: 0; */
-  /* animation: slideUpWrapper 0.6s ${(props) =>
-    props.delay} linear forwards; */
+  /* border: 2px solid #ddd; */
+`;
+const Content = styled.div`
+  transition-duration: 4s;
+  opacity: 0;
+  animation: slideUpContent 0.8s ${(props) => props.delay} linear forwards;
   /* border: 2px solid #ddd; */
 
-  @keyframes slideUpWrapper {
+  @keyframes slideUpContent {
     to {
       top: 0;
       opacity: 1;
