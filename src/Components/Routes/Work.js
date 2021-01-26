@@ -75,6 +75,7 @@ export default Work;
 
 // styles
 const Container = styled.section`
+  min-height: 100vh;
   background-image: url(${(props) => props.bg});
   background-size: cover;
   background-repeat: no-repeat;

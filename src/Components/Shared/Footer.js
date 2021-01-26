@@ -51,6 +51,7 @@ export default Footer;
 // styles
 const Container = styled.footer`
   position: relative;
+  bottom: 0;
   z-index: 1;
   width: 100%;
   background-color: #222831;

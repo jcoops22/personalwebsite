@@ -162,6 +162,7 @@ const H1 = styled.h1`
   margin-bottom: 1.5rem;
   text-align: left;
   padding-left: 1rem;
+  margin-top: 2rem;
   animation: slideInH1forModal 0.7s forwards;
   /* border: 1px solid red; */
 
@@ -229,7 +230,7 @@ const ShowPictures = styled.div`
   justify-content: center;
   align-items: center;
   width: 30%;
-  margin-top: 3rem;
+  margin-top: 2rem;
   cursor: pointer;
   /* border: 1px solid yellow; */
 
@@ -272,11 +273,20 @@ const DescAndLinks = styled.div`
   width: 100%;
   height: 20rem;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: flex-start;
-  padding-bottom: 1rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 0;
   /* border: 1px solid greenyellow; */
+
+  @media ${device.mobileL} {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${device.tabletS} {
+    flex-direction: row-reverse;
+  }
 `;
 const Description = styled.div`
   position: relative;
@@ -323,7 +333,7 @@ const LinksWrapper = styled.div`
   max-width: 600px;
   margin-top: 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   animation: slideInLinksWrapper 0.6s forwards;
   /* border: 1px solid red; */
@@ -342,6 +352,7 @@ const LinksWrapper = styled.div`
     margin: 0;
     border-radius: 50%;
     animation: spreadOutButtonLinks 0.4s 0.6s forwards;
+    /* border: 1px solid red; */
   }
 
   img {
@@ -368,6 +379,14 @@ const LinksWrapper = styled.div`
   }
 
   @media ${device.mobileM} {
+    flex-direction: column;
+  }
+
+  @media ${device.mobileL} {
+    flex-direction: row;
+  }
+
+  @media ${device.tabletS} {
     flex-direction: column;
   }
 `;
