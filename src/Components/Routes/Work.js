@@ -48,7 +48,6 @@ const Work = () => {
           {workData.map((work, ind) => (
             <CardWrapper key={ind}>
               <WorkCard
-                className="cards"
                 showMore={setShowMore}
                 work={work}
                 name={work.name}

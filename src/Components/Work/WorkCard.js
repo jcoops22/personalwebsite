@@ -172,15 +172,15 @@ const Wrapper = styled.div`
   }
   position: relative;
   top: 1rem;
-  opacity: 0;
   height: 14rem;
   width: 100%;
   max-width: 450px;
   border-radius: 5px;
   background-color: #222831;
   overflow: hidden;
-  animation: slideUpWrapper 0.6s linear forwards;
-  animation-delay: ${(props) => props.delay};
+  /* opacity: 0; */
+  /* animation: slideUpWrapper 0.6s ${(props) =>
+    props.delay} linear forwards; */
   /* border: 2px solid #ddd; */
 
   @keyframes slideUpWrapper {

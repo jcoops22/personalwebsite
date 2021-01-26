@@ -56,8 +56,11 @@ const Container = styled.footer`
   width: 100%;
   background-color: #222831;
   padding: 0.5rem 0;
-
   /* border: 1px solid green; */
+
+  @media ${device.tabletS} {
+    padding: 1.5rem 0;
+  }
 `;
 const Wrapper = styled.div`
   height: 100%;
