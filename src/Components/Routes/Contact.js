@@ -88,7 +88,7 @@ const Contact = () => {
         </H1Wrapper>
         <h3>
           {open
-            ? "Open to new opportunities"
+            ? "I'm open to new opportunities"
             : "Not accepting new work at this time"}
         </h3>
       </HeaderWrapper>
