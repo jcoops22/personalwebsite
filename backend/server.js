@@ -15,5 +15,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(" we running here in the backend");
+  console.log(`we running here on port ${PORT}`);
 });

@@ -374,10 +374,19 @@ const Label = styled.label`
   /* border: 1px solid red; */
 
   div {
+    position: relative;
+    top: 100%;
+    z-index: -1;
     color: #ff0f5e;
     font-size: 1rem;
+    animation: slideRequiredUp 0.4s forwards;
   }
-  /* border: 2px solid #ddd; */
+
+  @keyframes slideRequiredUp {
+    to {
+      top: 0;
+    }
+  }
 `;
 const Name = styled.input`
   ${Input};
