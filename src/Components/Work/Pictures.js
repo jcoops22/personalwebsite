@@ -25,7 +25,7 @@ const Pictures = ({ pics, show, setShowPictures }) => {
       ) : null}
       {pics ? (
         <Wrapper max={show ? "90%" : "650px"}>
-          <ImgWrapper height={show ? "420px" : "266px"}>
+          <ImgWrapper height={show ? "500px" : "266px"}>
             <Prev>
               <img
                 src={leftArrow}
@@ -103,7 +103,7 @@ const Container = styled.div`
 
   @media ${device.laptop} {
     display: flex;
-    width: 50%;
+    width: 100%;
   }
 
   @keyframes slideInPictures {
@@ -126,19 +126,22 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   width: 100%;
   max-width: ${(props) => props.max};
-  /* border: 1px solid red; */
+  overflow: hidden;
+  /* border: 1px solid yellow; */
 `;
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: ${(props) => props.height};
+  height: 100%;
+  max-height: ${(props) => props.height};
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* border: 1px solid red; */
+  /* border: 1px solid blue; */
 
   img {
     width: 100%;
+    /* border: 1px solid blue; */
   }
 `;
 const NavDots = styled.div`

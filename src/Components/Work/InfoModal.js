@@ -14,6 +14,9 @@ const InfoModal = ({ showMore, work }) => {
   const [imagesIcon] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611628602/New%20Portfolio%20Site/Projects/polaroid-pictures-svgrepo-com_c7tggw.svg"
   );
+  const [fullscreenIcon] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611783093/New%20Portfolio%20Site/Projects/fullscreen-svgrepo-com_steoot.svg"
+  );
   const [showPictures, setShowPictures] = useState(false);
 
   useEffect(() => {
@@ -50,7 +53,14 @@ const InfoModal = ({ showMore, work }) => {
             </ShowPictures>
           </TechAndPics>
         </HeaderAndTech>
-        <Pictures pics={work.screenshots} />
+        <PicsWrapper>
+          <Pictures pics={work.screenshots} />
+          <FullScreen
+            src={fullscreenIcon}
+            alt="fullscreen"
+            onClick={() => setShowPictures(true)}
+          />
+        </PicsWrapper>
       </HeaderTechAndPictures>
       <DescAndLinks>
         <Description>{work.desc}</Description>
@@ -243,6 +253,32 @@ const Languages = styled.ul`
   @media ${device.tablet} {
     width: 80%;
   }
+`;
+const PicsWrapper = styled.div`
+  display: none;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  max-width: fit-content;
+  /* border: 1px solid orange; */
+
+  @media ${device.laptop} {
+    display: flex;
+  }
+`;
+const FullScreen = styled.img`
+  &:hover {
+    opacity: 1;
+  }
+  position: absolute;
+  top: calc(100% - 1.5rem);
+  z-index: 2;
+  left: calc(100% - 1.6rem);
+  width: 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.5s;
+  /* border: 1px solid red; */
 `;
 const ShowPictures = styled.div`
   position: relative;

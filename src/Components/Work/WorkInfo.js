@@ -5,10 +5,15 @@ export const workItems = [
     desc:
       "Stock Market app to track your dividend payouts. Hooks into two API's, one for the stock marget symbol data and one for the real-time market data. D3 for graph visualizations. Firebase database and user auth",
     bg:
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1609535654/Portfolio%20Site/Projects%20Images/Screen_Shot_2021-01-01_at_2.10.34_PM_ryq51b.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.29_PM_zzi5xo.png",
     screenshots: [
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1609535654/Portfolio%20Site/Projects%20Images/Screen_Shot_2021-01-01_at_2.10.34_PM_ryq51b.png",
-      "",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.29_PM_zzi5xo.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.50_PM_gwfin7.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.24.17_PM_wrehii.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.25.08_PM_if42n6.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.25.55_PM_xoejoa.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.26.27_PM_kc02mk.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.26.40_PM_x8rl7w.png",
     ],
     languages: [
       {

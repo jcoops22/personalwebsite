@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "cd backend && npm install && npm start & PORT=4000 craco start",
-    "build": "cd backend && npm install && npm start & craco build",
+    "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
