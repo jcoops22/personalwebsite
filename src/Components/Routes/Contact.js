@@ -23,6 +23,7 @@ const Contact = () => {
   const [showValidation, setShowValidation] = useState(false);
   const [scroll, setScroll] = useState(true);
   const [submitted, setSubmitted] = useState(false);
+  const [open] = useState(true);
 
   useEffect(() => {
     setScroll(false);
@@ -85,6 +86,11 @@ const Contact = () => {
           <img src={contactIcon} alt="portfolio work" />
           <Headline>Contact</Headline>
         </H1Wrapper>
+        <h3>
+          {open
+            ? "Open to new opportunities"
+            : "Not accepting new work at this time"}
+        </h3>
       </HeaderWrapper>
       <Wrapper bg={helloPic}>
         <Form>
@@ -198,7 +204,8 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
+  padding: 0.3rem 0;
+  /* height: 5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -208,6 +215,12 @@ const HeaderWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   /* border: 1px solid red; */
+
+  h3 {
+    color: #ddd;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+  }
 `;
 const H1Wrapper = styled.div`
   display: flex;
@@ -262,12 +275,12 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 0.6rem;
+  padding: 0 1rem;
   background-color: rgba(48, 71, 94, 0.8);
   /* border: 2px solid #ddd; */
 `;
 const H3 = styled.h3`
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   color: #ddd;
   text-align: center;
   margin-top: 1rem;

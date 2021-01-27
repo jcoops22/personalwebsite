@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { device } from "../../resources/mediaquery";
 
-const Pictures = ({ pics }) => {
+const Pictures = ({ pics, show, setShowPictures }) => {
   const [index, setIndex] = useState(0);
   const [leftArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210526/New%20Portfolio%20Site/Projects/left-arrow-svgrepo-com_jswv0u.svg"
@@ -10,13 +10,22 @@ const Pictures = ({ pics }) => {
   const [rigthArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210527/New%20Portfolio%20Site/Projects/right-arrow-svgrepo-com_cuk6lt.svg"
   );
-  useEffect(() => {}, [index]);
+
+  useEffect(() => {}, [index, show]);
 
   return (
-    <Container>
+    <Container
+      show={show ? "flex" : "none"}
+      pos={show ? "fixed" : "relative"}
+      height={show ? "100vh" : "auto"}
+      color={show ? "rgba(0,0,0,0.8)" : "transparent"}
+    >
+      {show ? (
+        <Close onClick={() => setShowPictures(false)}>&#10005;</Close>
+      ) : null}
       {pics ? (
-        <Wrapper>
-          <ImgWrapper>
+        <Wrapper max={show ? "90%" : "650px"}>
+          <ImgWrapper height={show ? "420px" : "266px"}>
             <Prev>
               <img
                 src={leftArrow}
@@ -60,12 +69,14 @@ const Nav = css`
     opacity: 0.3;
   }
   position: absolute;
-  top: 0;
+  top: 25%;
   opacity: 0;
-  height: 266px;
   width: 25%;
+  height: 50%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
   // border: 1px solid red;
 `;
 const Prev = styled.div`
@@ -77,14 +88,17 @@ const Next = styled.div`
   left: 75%;
 `;
 const Container = styled.div`
-  position: relative;
+  position: ${(props) => props.pos};
   top: 0;
   left: 0;
+  z-index: 2;
   width: 100%;
-  display: none;
+  height: ${(props) => props.height};
+  display: ${(props) => props.show};
   justify-content: center;
   align-items: center;
-  animation: slideInPictures 0.8s forwards;
+  background-color: ${(props) => props.color};
+  animation: slideInPictures 0.5s cubic-bezier(0.17, 0.67, 0.57, 1.11) forwards;
   /* border: 1px solid red; */
 
   @media ${device.laptop} {
@@ -98,23 +112,32 @@ const Container = styled.div`
     }
   }
 `;
+const Close = styled.span`
+  position: absolute;
+  top: 7rem;
+  left: calc(100% - 3rem);
+  z-index: 2;
+  font-size: 2rem;
+  cursor: pointer;
+`;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  max-width: 600px;
+  max-width: ${(props) => props.max};
   /* border: 1px solid red; */
 `;
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
+  height: ${(props) => props.height};
   display: flex;
   align-items: center;
   overflow: hidden;
+  /* border: 1px solid red; */
 
   img {
-    height: 266px;
     width: 100%;
   }
 `;

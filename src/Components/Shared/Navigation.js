@@ -103,6 +103,7 @@ const UnderlineWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  pointer-events: none;
   /* border: 1px solid red; */
 `;
 const Underline = styled.div`

@@ -14,11 +14,18 @@ const InfoModal = ({ showMore, work }) => {
   const [imagesIcon] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611628602/New%20Portfolio%20Site/Projects/polaroid-pictures-svgrepo-com_c7tggw.svg"
   );
+  const [showPictures, setShowPictures] = useState(false);
+
   useEffect(() => {
+    if (showPictures) {
+      window.addEventListener("resize", () => {
+        return window.innerWidth >= 1024 ? setShowPictures(false) : null;
+      });
+    }
     if (work.languages) {
       setLanguages(work.languages);
     }
-  }, [languages]);
+  }, [languages, showPictures]);
 
   return (
     <Container>
@@ -37,7 +44,7 @@ const InfoModal = ({ showMore, work }) => {
                 ))}
               </Languages>
             ) : null}
-            <ShowPictures>
+            <ShowPictures onClick={() => setShowPictures(true)}>
               <img src={imagesIcon} alt="show screenshots" />
               <span>Screenshots</span>
             </ShowPictures>
@@ -57,7 +64,7 @@ const InfoModal = ({ showMore, work }) => {
               </a>
               <LinkText>
                 <a href={work.site} target="_blank" rel="noopener noreferrer">
-                  See site
+                  visit site
                 </a>
               </LinkText>
             </LinkDiv>
@@ -71,13 +78,20 @@ const InfoModal = ({ showMore, work }) => {
               </a>
               <LinkText>
                 <a href={work.github} target="_blank" rel="noopener noreferrer">
-                  See source code
+                  see source code
                 </a>
               </LinkText>
             </LinkDiv>
           ) : null}
         </LinksWrapper>
       </DescAndLinks>
+      {showPictures ? (
+        <Pictures
+          pics={work.screenshots}
+          show={"true"}
+          setShowPictures={setShowPictures}
+        />
+      ) : null}
     </Container>
   );
 };
@@ -191,6 +205,7 @@ const TechAndPics = styled.div`
 
   @media ${device.tabletS} {
     flex-direction: row;
+    align-items: flex-start;
   }
 `;
 const Languages = styled.ul`
@@ -198,9 +213,11 @@ const Languages = styled.ul`
   height: 6rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
   padding: 0 1rem;
-  /* border: 1px solid red; */
+  /* border: 1px solid green; */
 
   span {
     display: block;
@@ -219,8 +236,9 @@ const Languages = styled.ul`
   }
 
   @media ${device.tabletS} {
-    height: 10rem;
     padding: 0;
+    height: 10rem;
+    font-size: 1.2rem;
   }
   @media ${device.tablet} {
     width: 80%;
@@ -232,6 +250,7 @@ const ShowPictures = styled.div`
   align-items: center;
   width: 30%;
   margin-top: 2rem;
+  padding: 0 0.3rem;
   cursor: pointer;
   /* border: 1px solid yellow; */
 
@@ -245,6 +264,10 @@ const ShowPictures = styled.div`
 
   @media ${device.tabletS} {
     width: 55%;
+    font-size: 1.3rem;
+    img {
+      width: 4rem;
+    }
   }
   @media ${device.laptop} {
     display: none;

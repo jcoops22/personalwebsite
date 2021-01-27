@@ -105,7 +105,7 @@ const CardWrapperSection = styled.div`
 `;
 const CardWrapper = styled.div`
   height: 14rem;
-  width: 80%;
+  width: 100%;
   min-width: 300px;
   max-width: 450px;
   margin: 2rem 0.1rem;
