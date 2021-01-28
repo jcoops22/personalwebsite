@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { device } from "../../resources/mediaquery";
+import Loader from "../Shared/Loader";
 
 const Pictures = ({ pics, show, setShowPictures }) => {
   const [index, setIndex] = useState(0);
@@ -10,8 +11,16 @@ const Pictures = ({ pics, show, setShowPictures }) => {
   const [rigthArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210527/New%20Portfolio%20Site/Projects/right-arrow-svgrepo-com_cuk6lt.svg"
   );
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {}, [index, show]);
+  useEffect(() => {
+    let preLoad = document.createElement("img");
+    preLoad.src = pics[index];
+    preLoad.addEventListener("load", () => {
+      // setLoading(false);
+      preLoad = null;
+    });
+  }, [index, show]);
 
   return (
     <Container
@@ -30,12 +39,17 @@ const Pictures = ({ pics, show, setShowPictures }) => {
               <img
                 src={leftArrow}
                 alt="right arrow"
-                onClick={() =>
-                  setIndex(index <= 0 ? pics.length - 1 : index - 1)
-                }
+                onClick={() => {
+                  setLoading(true);
+                  setIndex(index <= 0 ? pics.length - 1 : index - 1);
+                }}
               />
             </Prev>
-            <img src={pics[index]} alt="project screenshot" />
+            {loading ? (
+              <Loader />
+            ) : (
+              <img src={pics[index]} alt="project screenshot" />
+            )}
             <Next>
               <img
                 src={rigthArrow}
@@ -129,6 +143,12 @@ const Wrapper = styled.div`
   overflow: hidden;
   /* border: 1px solid yellow; */
 `;
+const LoaderWrapper = styled.div`
+  position: relative;
+  height: ${(props) => props.height};
+  min-width: 450px;
+  border: 1px solid yellow;
+`;
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -137,7 +157,7 @@ const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
 
   img {
     width: 100%;

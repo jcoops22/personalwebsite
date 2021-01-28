@@ -183,6 +183,7 @@ const H3 = styled.h3`
   font-size: 1.3rem;
   color: #ddd;
   text-align: center;
+  font-weight: 200;
   /* border: 1px solid red; */
 
   @media ${device.tabletS} {

@@ -42,7 +42,7 @@ const InfoModal = ({ showMore, work }) => {
                 <span>Tech:</span>
                 {languages.map((lang, ind) => (
                   <Li key={ind} delay={ind * 0.2}>
-                    {lang.name} <img src={lang.icon} alt={lang.name} />
+                    {lang.name} <LangImg src={lang.icon} alt={lang.name} />
                   </Li>
                 ))}
               </Languages>
@@ -238,13 +238,6 @@ const Languages = styled.ul`
     /* border: 1px solid green; */
   }
 
-  img {
-    margin-left: 1rem;
-    width: 1.3rem;
-    border-radius: 50%;
-    /* border: 1px solid #ddd; */
-  }
-
   @media ${device.tabletS} {
     padding: 0;
     height: 10rem;
@@ -253,6 +246,12 @@ const Languages = styled.ul`
   @media ${device.tablet} {
     width: 80%;
   }
+`;
+const LangImg = styled.img`
+  margin-left: 1rem;
+  width: 1.3rem;
+  border-radius: 50%;
+  /* border: 1px solid #ddd; */
 `;
 const PicsWrapper = styled.div`
   display: none;

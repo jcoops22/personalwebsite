@@ -220,6 +220,7 @@ const HeaderWrapper = styled.div`
     color: #ddd;
     font-size: 1.5rem;
     padding-left: 1rem;
+    font-weight: 200;
   }
 `;
 const H1Wrapper = styled.div`

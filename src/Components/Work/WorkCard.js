@@ -63,6 +63,7 @@ export default WorkCard;
 
 // styles
 const H1 = styled.h1`
+  display: none;
   font-size: 1.3rem;
   font-weight: 500;
   width: 100%;
