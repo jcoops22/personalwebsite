@@ -8,19 +8,11 @@ const Pictures = ({ pics, show, setShowPictures }) => {
   const [leftArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210526/New%20Portfolio%20Site/Projects/left-arrow-svgrepo-com_jswv0u.svg"
   );
-  const [rigthArrow] = useState(
+  const [rightArrow] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611210527/New%20Portfolio%20Site/Projects/right-arrow-svgrepo-com_cuk6lt.svg"
   );
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    let preLoad = document.createElement("img");
-    preLoad.src = pics[index];
-    preLoad.addEventListener("load", () => {
-      // setLoading(false);
-      preLoad = null;
-    });
-  }, [index, show]);
+  useEffect(() => {}, [index, show]);
 
   return (
     <Container
@@ -40,19 +32,14 @@ const Pictures = ({ pics, show, setShowPictures }) => {
                 src={leftArrow}
                 alt="right arrow"
                 onClick={() => {
-                  setLoading(true);
                   setIndex(index <= 0 ? pics.length - 1 : index - 1);
                 }}
               />
             </Prev>
-            {loading ? (
-              <Loader />
-            ) : (
-              <img src={pics[index]} alt="project screenshot" />
-            )}
+            <img src={pics[index]} alt="project screenshot" />
             <Next>
               <img
-                src={rigthArrow}
+                src={rightArrow}
                 alt="right arrow"
                 onClick={() => {
                   setIndex(index < pics.length - 1 ? index + 1 : 0);
@@ -64,7 +51,9 @@ const Pictures = ({ pics, show, setShowPictures }) => {
             {pics.map((pic, ind) => (
               <Dot
                 key={ind}
-                onClick={() => setIndex(ind)}
+                onClick={() => {
+                  setIndex(ind);
+                }}
                 bg={index === ind ? "#ddd" : null}
               />
             ))}
@@ -143,12 +132,6 @@ const Wrapper = styled.div`
   overflow: hidden;
   /* border: 1px solid yellow; */
 `;
-const LoaderWrapper = styled.div`
-  position: relative;
-  height: ${(props) => props.height};
-  min-width: 450px;
-  border: 1px solid yellow;
-`;
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -157,7 +140,7 @@ const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 
   img {
     width: 100%;

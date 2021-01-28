@@ -129,7 +129,6 @@ export const workItems = [
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611793287/New%20Portfolio%20Site/Projects/HBS/Screen_Shot_2021-01-27_at_5.20.28_PM_f0dttv.png",
     screenshots: [
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611793287/New%20Portfolio%20Site/Projects/HBS/Screen_Shot_2021-01-27_at_5.20.28_PM_f0dttv.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611792331/New%20Portfolio%20Site/Projects/HBS/Screen_Shot_2021-01-27_at_4.59.32_PM_ubkdsf.png",
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611792328/New%20Portfolio%20Site/Projects/HBS/Screen_Shot_2021-01-27_at_4.59.47_PM_rrcwte.png",
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611792330/New%20Portfolio%20Site/Projects/HBS/Screen_Shot_2021-01-27_at_5.00.03_PM_xfjz6e.png",
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611792330/New%20Portfolio%20Site/Projects/HBS/Screen_Shot_2021-01-27_at_5.00.15_PM_pvouzw.png",
