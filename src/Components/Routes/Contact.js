@@ -318,9 +318,9 @@ const Confirmation = styled.h3`
   /* border: 1px solid red; */
 
   div {
-    width: 250px;
-    padding-left: 1.75rem;
-    /* border: 1px solid red; */
+    width: 270px;
+    padding-left: 2.3rem;
+    border: 1px solid red;
 
     span {
       display: inline-block;
