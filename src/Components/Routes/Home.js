@@ -34,7 +34,7 @@ const Container = styled.section`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   @media ${device.tabletS} {
     padding-top: 5rem;
