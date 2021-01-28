@@ -3,7 +3,7 @@ export const workItems = [
     name: "Dividend Tracker",
     font: "'Exo', sans-serif",
     desc:
-      "Stock Market app to track your dividend payouts. Hooks into two API's, one for the stock marget symbol data and one for the real-time market data. D3 for graph visualizations. Firebase database and user auth",
+      "Stock Market app to track your dividend payouts. Hooks into two API's, one for the stock marget symbol data and one for the real-time market data. D3 for graph visualizations. Firebase for cloud database and user auth.",
     bg:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.29_PM_zzi5xo.png",
     screenshots: [

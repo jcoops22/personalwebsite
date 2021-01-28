@@ -205,7 +205,6 @@ const HeaderWrapper = styled.div`
   left: 0;
   width: 100%;
   padding: 0.3rem 0;
-  /* height: 5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -262,7 +261,8 @@ const Headline = styled.h1`
 `;
 const Wrapper = styled.div`
   width: 100%;
-  min-height: 38rem;
+  height: 38rem;
+  min-height: 100vh;
   background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
   background-size: contain;
@@ -270,7 +270,8 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const Form = styled.div`
-  min-height: 38rem;
+  height: 38rem;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;

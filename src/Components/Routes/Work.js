@@ -93,6 +93,7 @@ const Overlay = styled.div`
   );
 `;
 const CardWrapperSection = styled.div`
+  min-height: 100vh;
   position: relative;
   z-index: 1;
   padding: 10rem 1rem 5rem;
