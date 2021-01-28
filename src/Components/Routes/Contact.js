@@ -436,11 +436,15 @@ const Button = styled.button`
   font-size: 1.3rem;
   font-weight: 300;
   color: ${(props) => props.color};
-  margin: 1rem 0 calc(100vh - 38rem);
+  margin: 1rem 0 6rem;
   border-radius: 3px;
   transition-duration: 0.4s;
   transition-delay: 1s;
   background-color: ${(props) => props.bg};
+
+  @media ${device.tablet} {
+    margin-bottom: calc(100vh - 38rem);
+  }
 `;
 const LetterWrapper = styled.span`
   position: relative;

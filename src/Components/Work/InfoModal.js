@@ -19,6 +19,11 @@ const InfoModal = ({ showMore, work }) => {
   );
   const [showPictures, setShowPictures] = useState(false);
 
+  const getShortDescription = (desc) => {
+    // take the first senence of descrption
+    return desc.split(".")[0];
+  };
+
   useEffect(() => {
     if (showPictures) {
       window.addEventListener("resize", () => {
@@ -35,7 +40,12 @@ const InfoModal = ({ showMore, work }) => {
       <Close onClick={() => showMore(false)}>[close]</Close>
       <HeaderTechAndPictures>
         <HeaderAndTech>
-          {work ? <H1 font={work.font}>{work.name}</H1> : null}
+          {work ? (
+            <HeaderWrapper>
+              <H1 font={work.font}>{work.name}</H1>
+              <h4>{getShortDescription(work.desc)}</h4>
+            </HeaderWrapper>
+          ) : null}
           <TechAndPics>
             {languages.length ? (
               <Languages>
@@ -176,6 +186,33 @@ const HeaderAndTech = styled.div`
     width: 50%;
   }
 `;
+const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  /* border: 1px solid red; */
+
+  h4 {
+    font-weight: 300;
+    opacity: 0;
+    padding-left: 0.3rem;
+    animation: fadeH4In 0.4s linear forwards;
+  }
+
+  @keyframes fadeH4In {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media ${device.mobileL} {
+    h4 {
+      display: none;
+    }
+  }
+`;
 const H1 = styled.h1`
   position: relative;
   top: 0;
@@ -184,10 +221,9 @@ const H1 = styled.h1`
   width: 100%;
   font-size: 2rem;
   font-family: ${(props) => props.font};
-  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
   text-align: left;
   padding-left: 1rem;
-  margin-top: 2rem;
   animation: slideInH1forModal 0.7s forwards;
   /* border: 1px solid red; */
 
@@ -200,6 +236,7 @@ const H1 = styled.h1`
 
   @media ${device.tabletS} {
     padding-left: 0;
+    margin-bottom: 1.5rem;
   }
   @media ${device.tablet} {
     font-size: 3rem;
