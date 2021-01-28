@@ -320,7 +320,7 @@ const Confirmation = styled.h3`
   div {
     width: 270px;
     padding-left: 2.3rem;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     span {
       display: inline-block;
