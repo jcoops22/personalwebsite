@@ -270,7 +270,6 @@ const Wrapper = styled.div`
 `;
 const Form = styled.div`
   height: 38rem;
-  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -431,7 +430,7 @@ const Button = styled.button`
   font-size: 1.3rem;
   font-weight: 300;
   color: ${(props) => props.color};
-  margin: 1rem 0 3rem;
+  margin: 1rem 0 calc(100vh - 38rem);
   border-radius: 3px;
   transition-duration: 0.4s;
   transition-delay: 1s;
