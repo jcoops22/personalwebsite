@@ -370,6 +370,7 @@ const Label = styled.label`
   width: 100%;
   max-width: 430px;
   color: #f05454;
+  color: #ddd;
   font-size: 1.4rem;
   font-weight: 400;
   margin-top: 1.2rem;

@@ -45,7 +45,7 @@ export const workItems = [
     github: "https://github.com/jcoops22/phewapparel",
     site: "https://phewapparel.herokuapp.com/",
     desc:
-      "Robust online store built with React/Redux and Firebase cloud database. User auth, emailed receipts and updates on shipping. Paypal/Stripe payment integration. A complete admin system to manage products and orders. Feel free to buy a shirt from my cousin!",
+      "Online store built with React/Redux and Firestore cloud database. Firebase user authentication, emailed receipts and updates on shipping. Paypal and Stripe payment integration. A complete admin system to manage products and orders. Feel free to buy a shirt from my cousin!",
     bg:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791947/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.37.16_PM_ttyipe.png",
     screenshots: [
