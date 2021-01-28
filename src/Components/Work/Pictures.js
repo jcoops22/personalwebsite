@@ -19,14 +19,15 @@ const Pictures = ({ pics, show, setShowPictures }) => {
       show={show ? "flex" : "none"}
       pos={show ? "fixed" : "relative"}
       height={show ? "100vh" : "auto"}
+      top={show ? "1rem" : "0"}
       color={show ? "rgba(0,0,0,0.8)" : "transparent"}
     >
       {show ? (
         <Close onClick={() => setShowPictures(false)}>&#10005;</Close>
       ) : null}
       {pics ? (
-        <Wrapper max={show ? "90%" : "650px"}>
-          <ImgWrapper height={show ? "500px" : "266px"}>
+        <Wrapper max={show ? "990px" : "650px"}>
+          <ImgWrapper height={show ? "520px" : "266px"}>
             <Prev>
               <img
                 src={leftArrow}
@@ -36,7 +37,7 @@ const Pictures = ({ pics, show, setShowPictures }) => {
                 }}
               />
             </Prev>
-            <img src={pics[index]} alt="project screenshot" />
+            <Img src={pics[index]} alt="project screenshot" />
             <Next>
               <img
                 src={rightArrow}
@@ -92,7 +93,7 @@ const Next = styled.div`
 `;
 const Container = styled.div`
   position: ${(props) => props.pos};
-  top: 0;
+  top: ${(props) => props.top};
   left: 0;
   z-index: 2;
   width: 100%;
@@ -138,13 +139,17 @@ const ImgWrapper = styled.div`
   height: 100%;
   max-height: ${(props) => props.height};
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   overflow: hidden;
   /* border: 1px solid blue; */
+`;
+const Img = styled.img`
+  width: 100%;
+  /* border: 1px solid green; */
 
-  img {
-    width: 100%;
-    /* border: 1px solid blue; */
+  @media ${device.laptop} {
+    width: 90%;
   }
 `;
 const NavDots = styled.div`

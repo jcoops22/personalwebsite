@@ -276,7 +276,7 @@ const Form = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
-  background-color: rgba(48, 71, 94, 0.8);
+  background-color: rgba(48, 71, 94, 0.5);
   /* border: 2px solid #ddd; */
 `;
 const H3 = styled.h3`
@@ -337,12 +337,17 @@ const FormWrapper = styled.div`
   justify-content: flex-start;
   opacity: 0;
   overflow: hidden;
+  padding: 0 1rem;
   animation: fadeFormWrapperIn 0.7s linear forwards;
   transition-duration: 1s;
   /* border: 1px solid red; */
 
   input,
   textarea {
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px 3px #30475e;
+    }
     background-color: #ddd;
     color: #30475e;
     padding: 0.4rem 0.7rem;
@@ -413,6 +418,7 @@ const Counter = styled.span`
   width: 100%;
   height: 2rem;
   color: #f05454;
+  color: #ddd;
   opacity: 0.7;
   text-align: right;
   /* border: 1px solid red; */

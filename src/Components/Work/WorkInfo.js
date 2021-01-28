@@ -5,15 +5,14 @@ export const workItems = [
     desc:
       "Stock Market app to track your dividend payouts. Hooks into two API's, one for the stock marget symbol data and one for the real-time market data. D3 for graph visualizations. Firebase for cloud database and user auth.",
     bg:
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.29_PM_zzi5xo.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.53.48_AM_hb3fi4.png",
     screenshots: [
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.29_PM_zzi5xo.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.23.50_PM_gwfin7.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790216/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.24.17_PM_wrehii.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.25.08_PM_if42n6.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.25.55_PM_xoejoa.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.26.27_PM_kc02mk.png",
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611790217/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-27_at_4.26.40_PM_x8rl7w.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.53.48_AM_hb3fi4.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.54.06_AM_akwbev.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.57.04_AM_m82ihk.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.58.34_AM_ioianb.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.58.50_AM_ibb4ff.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611853411/New%20Portfolio%20Site/Projects/Dividend%20Tracker/Screen_Shot_2021-01-28_at_9.59.21_AM_h8nchf.png",
     ],
     languages: [
       {
@@ -50,7 +49,7 @@ export const workItems = [
     bg:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791947/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.37.16_PM_ttyipe.png",
     screenshots: [
-      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791945/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.55.12_PM_keyerb.png",
+      "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791947/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.37.16_PM_ttyipe.png",
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791947/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.53.18_PM_ftrnap.png",
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791947/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.52.59_PM_jzq9j5.png",
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1611791940/New%20Portfolio%20Site/Projects/Phew%21%20Apparel/Screen_Shot_2021-01-27_at_4.50.22_PM_visx8r.png",
