@@ -32,16 +32,33 @@ const Contact = () => {
     }
   }, [valName, valEmail, valMessage]);
 
-  // SUBMIT to backend
-  const handleSubmit = () => {
+  // ENCODE function
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  // SUBMIT FORM
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (!!valName && valEmail && valMessage) {
       setShowValidation(false);
       validateForm();
       // POST CALL
-      fetch("/hey")
-        .then((data) => {
-          console.log(data.json());
-        })
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          name: name,
+          email: email,
+          message: message,
+        }),
+      })
         .then(() => {
           setName("");
           setEmail("");
@@ -93,7 +110,7 @@ const Contact = () => {
         </h3>
       </HeaderWrapper>
       <Wrapper bg={helloPic}>
-        <Form>
+        <Form onSubmit={(e) => handleSubmit(e)} name="contact">
           <H3 opacity={submitted ? "0" : "1"}>Drop me a line.</H3>
           <Confirmation opacity={submitted ? "1" : "0"}>
             <div>
@@ -268,7 +285,7 @@ const Wrapper = styled.div`
   background-position: top;
   /* border: 1px solid red; */
 `;
-const Form = styled.div`
+const Form = styled.form`
   height: 38rem;
   width: 100%;
   display: flex;
