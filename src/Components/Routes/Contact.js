@@ -4,6 +4,7 @@ import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
 import Footer from "../Shared/Footer";
 import Loader from "../Shared/Loader";
+import ErrorComp from "../Shared/ErrorComp";
 
 const Contact = () => {
   const [bg] = useState(
@@ -26,13 +27,16 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [open] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [actualErr, setActualErr] = useState(null);
 
   useEffect(() => {
     setScroll(false);
     if (scroll) {
       window.scrollTo(0, 0);
     }
-  }, [valName, valEmail, valMessage]);
+  }, [valName, valEmail, valMessage, showError]);
 
   // ENCODE function
   const encode = (data) => {
@@ -46,14 +50,14 @@ const Contact = () => {
   // SUBMIT FORM
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
 
     if (!!valName && valEmail && valMessage) {
+      setLoading(true);
       setShowValidation(false);
       validateForm();
       // POST CALL
       fetch("/contact", {
-        method: "POST",
+        method: "POSTdd",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "contact",
@@ -62,17 +66,29 @@ const Contact = () => {
           message: message,
         }),
       })
-        .then(() => {
-          setLoading(false);
-          setName("");
-          setEmail("");
-          setMessage("");
-          setValName(false);
-          setValEmail(false);
-          setValMessage(false);
-          setSubmitted(true);
+        .then((res) => {
+          if (res.ok) {
+            setLoading(false);
+            setName("");
+            setEmail("");
+            setMessage("");
+            setValName(false);
+            setValEmail(false);
+            setValMessage(false);
+            setSubmitted(true);
+          } else {
+            setLoading(false);
+            setShowError(true);
+            setErrorMessage("Sorry, there was an error in the submit");
+            setActualErr(res.statusText);
+            setTimeout(() => {
+              setShowError(false);
+            }, 5000);
+          }
         })
-        .catch((err) => console.log("There was an error: ", err.message));
+        .catch((err) => {
+          console.log(err.message);
+        });
     } else {
       setShowValidation(true);
     }
@@ -207,6 +223,7 @@ const Contact = () => {
           <Loader />
         </LoaderWrapper>
       ) : null}
+      {showError ? <ErrorComp message={errorMessage} err={actualErr} /> : null}
     </Container>
   );
 };
