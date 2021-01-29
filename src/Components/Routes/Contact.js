@@ -57,7 +57,7 @@ const Contact = () => {
       validateForm();
       // POST CALL
       fetch("/contact", {
-        method: "POSTdd",
+        method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "contact",
