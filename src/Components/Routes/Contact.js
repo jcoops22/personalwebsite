@@ -50,7 +50,7 @@ const Contact = () => {
       setShowValidation(false);
       validateForm();
       // POST CALL
-      fetch("/", {
+      fetch("/contact", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
@@ -178,7 +178,7 @@ const Contact = () => {
         </Form>
       </Wrapper>
       <Button
-        type="submit"
+        onClick={(e) => handleSubmit(e)}
         top={submitted ? "-20vrem" : "0"}
         overflow={submitted ? "visible" : "hidden"}
         color={submitted ? "#30475e" : "#222831"}
