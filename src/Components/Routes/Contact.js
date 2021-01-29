@@ -110,7 +110,8 @@ const Contact = () => {
         </h3>
       </HeaderWrapper>
       <Wrapper bg={helloPic}>
-        <Form onSubmit={(e) => handleSubmit(e)} name="contact">
+        <Form onSubmit={(e) => handleSubmit(e)}>
+          <input type="hidden" name="form-name" value="contact" />
           <H3 opacity={submitted ? "0" : "1"}>Drop me a line.</H3>
           <Confirmation opacity={submitted ? "1" : "0"}>
             <div>
