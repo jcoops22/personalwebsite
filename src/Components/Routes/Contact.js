@@ -44,6 +44,7 @@ const Contact = () => {
   // SUBMIT FORM
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("submit happened");
 
     if (!!valName && valEmail && valMessage) {
       setShowValidation(false);
@@ -60,6 +61,7 @@ const Contact = () => {
         }),
       })
         .then(() => {
+          console.log("post was successful");
           setName("");
           setEmail("");
           setMessage("");
