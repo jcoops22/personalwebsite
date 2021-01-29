@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { device } from "../../resources/mediaquery";
 import Navigation from "../Shared/Navigation";
 import Footer from "../Shared/Footer";
+import Loader from "../Shared/Loader";
 
 const Contact = () => {
   const [bg] = useState(
@@ -24,6 +25,7 @@ const Contact = () => {
   const [scroll, setScroll] = useState(true);
   const [submitted, setSubmitted] = useState(false);
   const [open] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setScroll(false);
@@ -44,7 +46,7 @@ const Contact = () => {
   // SUBMIT FORM
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit happened");
+    setLoading(true);
 
     if (!!valName && valEmail && valMessage) {
       setShowValidation(false);
@@ -61,7 +63,7 @@ const Contact = () => {
         }),
       })
         .then(() => {
-          console.log("post was successful");
+          setLoading(false);
           setName("");
           setEmail("");
           setMessage("");
@@ -69,9 +71,8 @@ const Contact = () => {
           setValEmail(false);
           setValMessage(false);
           setSubmitted(true);
-          // window.scrollTo(0, 0);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log("There was an error: ", err.message));
     } else {
       setShowValidation(true);
     }
@@ -128,6 +129,7 @@ const Contact = () => {
               ) : null}
             </Label>
             <Name
+              disabled={!!loading}
               type="text"
               name="name"
               placeholder="enter name"
@@ -144,6 +146,7 @@ const Contact = () => {
               ) : null}
             </Label>
             <Email
+              disabled={!!loading}
               type="email"
               name="email"
               placeholder="enter email"
@@ -161,6 +164,7 @@ const Contact = () => {
             </Label>
             <MessageWrapper>
               <Message
+                disabled={!!loading}
                 maxLength="300"
                 name="message"
                 placeholder="What do you want to say?"
@@ -178,6 +182,7 @@ const Contact = () => {
         </Form>
       </Wrapper>
       <Button
+        disabled={!!loading}
         onClick={(e) => handleSubmit(e)}
         top={submitted ? "-20vrem" : "0"}
         overflow={submitted ? "visible" : "hidden"}
@@ -197,6 +202,11 @@ const Contact = () => {
         </Sent>
       </Button>
       <Footer />
+      {loading ? (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      ) : null}
     </Container>
   );
 };
@@ -502,4 +512,15 @@ const Sent = styled.span`
       font-weight: 400;
     }
   }
+`;
+const LoaderWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
 `;
