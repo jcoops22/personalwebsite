@@ -130,7 +130,6 @@ const Contact = () => {
               name="name"
               placeholder="enter name"
               onChange={(e) => {
-                console.log("we changing");
                 validateForm(e.target);
                 setName(e.target.value);
               }}
@@ -177,7 +176,7 @@ const Contact = () => {
         </Form>
       </Wrapper>
       <Button
-        onClick={() => handleSubmit()}
+        type="submit"
         top={submitted ? "-20vrem" : "0"}
         overflow={submitted ? "visible" : "hidden"}
         color={submitted ? "#30475e" : "#222831"}
