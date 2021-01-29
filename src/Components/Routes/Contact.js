@@ -204,6 +204,7 @@ const Contact = () => {
         overflow={submitted ? "visible" : "hidden"}
         color={submitted ? "#30475e" : "#222831"}
         bg={submitted ? "#30475e" : "#f05454"}
+        cursor={loading ? "not-allowed" : "pointer"}
       >
         Sen
         <LetterWrapper opacity={submitted ? "0" : "1"}>
@@ -487,6 +488,7 @@ const Button = styled.button`
   border-radius: 3px;
   transition-duration: 0.4s;
   transition-delay: 1s;
+  cursor: ${(props) => props.cursor};
   background-color: ${(props) => props.bg};
 
   @media ${device.tablet} {
