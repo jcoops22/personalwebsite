@@ -5,6 +5,7 @@ import Loader from "../Shared/Loader";
 
 const ImageViewer = ({ url, show }) => {
   const [loading, setLoading] = useState(true);
+  const [pic, setPic] = useState(url);
 
   useEffect(() => {
     preloadImg();
@@ -31,7 +32,7 @@ const ImageViewer = ({ url, show }) => {
           <Loader />
         </LoaderWrapper>
       ) : (
-        <Img src={url} alt="preview" />
+        <Img src={url} alt="preview" loading="lazy" />
       )}
     </ImageWrapper>
   );
@@ -46,14 +47,14 @@ const ImageWrapper = styled.div`
   height: ${(props) => props.height};
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  background-color: #222831;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
   /* border: 1px solid orange; */
 `;
 const Img = styled.img`
   width: 100%;
   opacity: 0;
-  animation: fadeImagePreviewIn 0.3s linear forwards;
+  animation: fadeImagePreviewIn 0.7s linear forwards;
   /* border: 1px solid orange; */
 
   @keyframes fadeImagePreviewIn {
