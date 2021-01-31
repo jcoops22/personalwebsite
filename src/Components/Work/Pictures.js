@@ -119,8 +119,8 @@ const Container = styled.div`
 `;
 const Close = styled.span`
   position: absolute;
-  top: 7rem;
-  left: calc(100% - 3rem);
+  top: 6rem;
+  left: calc(100% - 2.5rem);
   z-index: 2;
   font-size: 2rem;
   height: 2.3rem;

@@ -332,7 +332,7 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
-  background-color: rgba(48, 71, 94, 0.5);
+  background-color: rgba(48, 71, 94, 0.3);
   /* border: 2px solid #ddd; */
 `;
 const H3 = styled.h3`

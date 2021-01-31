@@ -48,6 +48,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
+  background-color: #222831;
   /* border: 1px solid orange; */
 `;
 const Img = styled.img`

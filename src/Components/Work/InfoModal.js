@@ -334,7 +334,6 @@ const ShowPictures = styled.div`
     width: 3rem;
     margin-right: 1rem;
     padding: 0.2rem;
-    background-color: #f05454;
     border-radius: 50%;
   }
   @keyframes slideShowPicturesIn {
