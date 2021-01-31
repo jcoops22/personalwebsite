@@ -23,7 +23,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [valMessage, setValMessage] = useState(false);
   const [showValidation, setShowValidation] = useState(false);
-  const [scroll, setScroll] = useState(true);
+  const [scrollUp, setScrollUp] = useState(true);
   const [submitted, setSubmitted] = useState(false);
   const [open] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -32,8 +32,8 @@ const Contact = () => {
   const [actualErr, setActualErr] = useState(null);
 
   useEffect(() => {
-    setScroll(false);
-    if (scroll) {
+    setScrollUp(false);
+    if (scrollUp) {
       window.scrollTo(0, 0);
     }
   }, [valName, valEmail, valMessage, showError, loading]);
@@ -80,7 +80,8 @@ const Contact = () => {
             setLoading(false);
             setShowError(true);
             setErrorMessage("Sorry, there was an error in the submit");
-            setActualErr(res.statusText);
+            setActualErr(`Status: ${res.status} ${res.statusText}`);
+            console.log(actualErr);
             setTimeout(() => {
               setShowError(false);
             }, 5000);

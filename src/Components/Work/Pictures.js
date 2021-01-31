@@ -74,7 +74,7 @@ const Nav = css`
   }
   position: absolute;
   top: 25%;
-  z-index: 2;
+  z-index: 1;
   opacity: 0;
   width: 25%;
   height: 50%;
