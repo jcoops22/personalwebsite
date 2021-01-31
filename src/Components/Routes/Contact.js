@@ -10,11 +10,11 @@ const Contact = () => {
   const [bg] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1610949169/New%20Portfolio%20Site/Screen_Shot_2021-01-17_at_10.37_1_1_1_kkynsh.jpg"
   );
-  const [helloPic] = useState(
-    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611383304/New%20Portfolio%20Site/cytonn-photography-ZJEKICY5EXY-unsplash_1_mr0qvu.jpg"
-  );
   const [contactIcon] = useState(
     "https://res.cloudinary.com/drucvvo7f/image/upload/v1611384636/New%20Portfolio%20Site/Icons/016-help_yaz7q4.svg"
+  );
+  const [helloPic] = useState(
+    "https://res.cloudinary.com/drucvvo7f/image/upload/v1611383304/New%20Portfolio%20Site/cytonn-photography-ZJEKICY5EXY-unsplash_1_mr0qvu.jpg"
   );
   const [name, setName] = useState("");
   const [valName, setValName] = useState(false);
@@ -36,7 +36,7 @@ const Contact = () => {
     if (scroll) {
       window.scrollTo(0, 0);
     }
-  }, [valName, valEmail, valMessage, showError]);
+  }, [valName, valEmail, valMessage, showError, loading]);
 
   // ENCODE function
   const encode = (data) => {
@@ -206,10 +206,10 @@ const Contact = () => {
         bg={submitted ? "#30475e" : "#f05454"}
         cursor={loading ? "not-allowed" : "pointer"}
       >
-        Sen
+        <ButtonSpan>Sen</ButtonSpan>
         <LetterWrapper opacity={submitted ? "0" : "1"}>
-          <BtnLetter top={submitted ? "-0.5rem" : "-200%"}>t</BtnLetter>
-          <BtnLetter top={submitted ? "200%" : "-0.5rem"}>d</BtnLetter>
+          <BtnLetter top={submitted ? "18%" : "-200%"}>t</BtnLetter>
+          <BtnLetter top={submitted ? "200%" : "18%"}>d</BtnLetter>
         </LetterWrapper>
         <Sent
           animation={submitted ? "jumpSentUp" : "none"}
@@ -250,6 +250,7 @@ const HeaderWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
   width: 100%;
   padding: 0.3rem 0;
   display: flex;
@@ -260,6 +261,7 @@ const HeaderWrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  animation: fadeBGImageIn 0.5s linear forwards;
   /* border: 1px solid red; */
 
   h3 {
@@ -267,6 +269,12 @@ const HeaderWrapper = styled.div`
     font-size: 1.5rem;
     padding-left: 1rem;
     font-weight: 200;
+  }
+
+  @keyframes fadeBGImageIn {
+    to {
+      opacity: 1;
+    }
   }
 `;
 const H1Wrapper = styled.div`
@@ -478,7 +486,7 @@ const Button = styled.button`
   position: relative;
   top: ${(props) => props.top};
   text-align: left;
-  padding-left: 1.5rem; //center the text since letter is absolutely positioned
+  /* padding-left: 1.5rem; //center the text since letter is absolutely positioned */
   height: 3rem;
   width: 6rem;
   font-size: 1.3rem;
@@ -488,6 +496,9 @@ const Button = styled.button`
   border-radius: 3px;
   transition-duration: 0.4s;
   transition-delay: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: ${(props) => props.cursor};
   background-color: ${(props) => props.bg};
 
@@ -495,12 +506,18 @@ const Button = styled.button`
     margin-bottom: calc(100vh - 38rem);
   }
 `;
+const ButtonSpan = styled.span`
+  position: relative;
+  top: 0rem;
+  /* height: 100%; */
+`;
 const LetterWrapper = styled.span`
   position: relative;
-  top: 0.12rem;
+  top: 0rem;
   width: 1rem;
-  height: 1rem;
-  display: inline-block;
+  height: 100%;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   opacity: ${(props) => props.opacity};
   transition-delay: 1s;

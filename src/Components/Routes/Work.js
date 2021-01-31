@@ -180,6 +180,7 @@ const Headline = styled.h1`
   }
 `;
 const H3 = styled.h3`
+  width: 100%;
   display: none;
   font-size: 1.3rem;
   color: #ddd;

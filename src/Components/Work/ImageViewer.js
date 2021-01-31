@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { device } from "../../resources/mediaquery";
 import Loader from "../Shared/Loader";
 
 const ImageViewer = ({ url, show }) => {
