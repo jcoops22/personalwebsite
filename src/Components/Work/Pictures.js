@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { device } from "../../resources/mediaquery";
-import Loader from "../Shared/Loader";
+import ImageViewer from "../Work/ImageViewer";
 
 const Pictures = ({ pics, show, setShowPictures }) => {
   const [index, setIndex] = useState(0);
@@ -37,7 +37,7 @@ const Pictures = ({ pics, show, setShowPictures }) => {
                 }}
               />
             </Prev>
-            <Img src={pics[index]} alt="project screenshot" />
+            <ImageViewer url={pics[index]} show={show} />
             <Next>
               <img
                 src={rightArrow}
@@ -74,6 +74,7 @@ const Nav = css`
   }
   position: absolute;
   top: 25%;
+  z-index: 2;
   opacity: 0;
   width: 25%;
   height: 50%;
@@ -122,7 +123,15 @@ const Close = styled.span`
   left: calc(100% - 3rem);
   z-index: 2;
   font-size: 2rem;
+  height: 2.3rem;
+  width: 2.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  border-radius: 50%;
+  background-color: #222831;
+  /* border: 1px solid red; */
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -143,14 +152,6 @@ const ImgWrapper = styled.div`
   align-items: flex-start;
   overflow: hidden;
   /* border: 1px solid blue; */
-`;
-const Img = styled.img`
-  width: 100%;
-  /* border: 1px solid green; */
-
-  @media ${device.laptop} {
-    width: 90%;
-  }
 `;
 const NavDots = styled.div`
   display: flex;
