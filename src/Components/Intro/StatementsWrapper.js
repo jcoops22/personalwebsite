@@ -11,6 +11,7 @@ import {
   designerItemsvar,
   uxItemsvar,
 } from "./StatementInfo";
+import BackgroundHeader from "./BackgroundHeader";
 import arrow from "../../resources/arrow.svg";
 
 const StatementsWrapper = () => {
@@ -44,10 +45,12 @@ const StatementsWrapper = () => {
     <Wrapper>
       <CardWrapper bg="#ddd" className="card">
         <Header text={"What I do"} invert={true} />
+        <BackgroundHeader text={"What I do"} />
         <Card icon={devIcon} header={"Develop"} list={developerItems} />
       </CardWrapper>
       <CardWrapper bg="#30475e" className="card">
         <Header text={"My Approach"} />
+        <BackgroundHeader text={"My Approach"} />
         <Card
           invert={true}
           icon={designIcon}
@@ -57,6 +60,7 @@ const StatementsWrapper = () => {
       </CardWrapper>
       <CardWrapper bg="#ddd" className="card">
         <Header text={"What I bring"} invert={true} />
+        <BackgroundHeader text={"What I bring"} />
         <Card icon={uxIcon} header={"UX/UI"} list={uxItems} />
         <BtnWrapper ref={btn}>
           <Link to="/work">
@@ -80,6 +84,7 @@ const Wrapper = styled.div`
   /* border: 1px solid red; */
 `;
 const CardWrapper = styled.div`
+  position: relative;
   min-height: 800px;
   width: 100%;
   padding: 3rem 0;

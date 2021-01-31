@@ -31,7 +31,7 @@ export const developerItemsvar = [
 ];
 export const designerItemsvar = [
   {
-    name: "Expert styling with CSS3 and modern CSS frameworks",
+    name: "Strong styling skills with CSS3 and modern CSS frameworks",
     icon:
       "https://res.cloudinary.com/drucvvo7f/image/upload/v1610945027/New%20Portfolio%20Site/Icons/Design/017-homepage_zrqkcy.svg",
   },
