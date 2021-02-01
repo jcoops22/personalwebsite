@@ -510,6 +510,7 @@ const Button = styled.button`
 const ButtonSpan = styled.span`
   position: relative;
   top: 0rem;
+  color: #ddd;
   /* height: 100%; */
 `;
 const LetterWrapper = styled.span`
@@ -517,6 +518,7 @@ const LetterWrapper = styled.span`
   top: 0rem;
   width: 1rem;
   height: 100%;
+  color: #ddd;
   display: flex;
   align-items: center;
   overflow: hidden;
