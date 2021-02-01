@@ -123,11 +123,11 @@ const Contact = () => {
           <img src={contactIcon} alt="portfolio work" />
           <Headline>Contact</Headline>
         </H1Wrapper>
-        <h3>
+        <h2>
           {open
             ? "I'm open to new opportunities"
             : "Not accepting new work at this time"}
-        </h3>
+        </h2>
       </HeaderWrapper>
       <Wrapper bg={helloPic}>
         <Form onSubmit={(e) => handleSubmit(e)}>
@@ -265,7 +265,7 @@ const HeaderWrapper = styled.div`
   animation: fadeBGImageIn 0.5s linear forwards;
   /* border: 1px solid red; */
 
-  h3 {
+  h2 {
     color: #ddd;
     font-size: 1.5rem;
     padding-left: 1rem;
