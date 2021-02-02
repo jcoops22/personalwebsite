@@ -67,25 +67,25 @@ const Contact = () => {
         }),
       })
         .then((res) => {
-          // if (res.ok) {
-          setLoading(false);
-          setName("");
-          setEmail("");
-          setMessage("");
-          setValName(false);
-          setValEmail(false);
-          setValMessage(false);
-          setSubmitted(true);
-          // } else {
-          setLoading(false);
-          setShowError(true);
-          setErrorMessage("Sorry, there was an error in the submit");
-          setActualErr(`Status: ${res.status} ${res.statusText}`);
-          console.log(actualErr);
-          setTimeout(() => {
-            setShowError(false);
-          }, 5000);
-          // }
+          if (res.ok) {
+            setLoading(false);
+            setName("");
+            setEmail("");
+            setMessage("");
+            setValName(false);
+            setValEmail(false);
+            setValMessage(false);
+            setSubmitted(true);
+          } else {
+            setLoading(false);
+            setShowError(true);
+            setErrorMessage("Sorry, there was an error in the submit");
+            setActualErr(`Status: ${res.status} ${res.statusText}`);
+            console.log(actualErr);
+            setTimeout(() => {
+              setShowError(false);
+            }, 5000);
+          }
         })
         .catch((err) => {
           console.log(err.message);
@@ -226,6 +226,7 @@ const Contact = () => {
           <Loader />
         </LoaderWrapper>
       ) : null}
+      {showError ? <ErrorComp message={errorMessage} err={actualErr} /> : null}
     </Container>
   );
 };
@@ -264,14 +265,12 @@ const HeaderWrapper = styled.div`
   background-position: center;
   animation: fadeBGImageIn 0.5s linear forwards;
   /* border: 1px solid red; */
-
   h2 {
     color: #ddd;
     font-size: 1.5rem;
     padding-left: 1rem;
     font-weight: 200;
   }
-
   @keyframes fadeBGImageIn {
     to {
       opacity: 1;
@@ -286,18 +285,15 @@ const H1Wrapper = styled.div`
   opacity: 0;
   animation: fadeHeaderWrapperIn 1s linear forwards;
   /* border: 1px solid green; */
-
   img {
     width: 2rem;
     margin-right: 1rem;
   }
-
   @keyframes fadeHeaderWrapperIn {
     to {
       opacity: 1;
     }
   }
-
   @media ${device.tabletS} {
     img {
       width: 3rem;
@@ -310,7 +306,6 @@ const Headline = styled.h1`
   font-weight: bold;
   color: #f05454;
   text-align: center;
-
   @media ${device.tabletS} {
     font-size: 3rem;
   }
@@ -345,13 +340,11 @@ const H3 = styled.h3`
   opacity: ${(props) => props.opacity};
   transition-duration: 1s;
   /* border: 1px solid red; */
-
   @keyframes flexH3 {
     to {
       transform: scale(1);
     }
   }
-
   @media ${device.tabletS} {
     animation: flexH3 0.8s 0.4s forwards;
   }
@@ -372,12 +365,10 @@ const Confirmation = styled.h3`
   transition-delay: 1s;
   background-color: #ddd;
   /* border: 1px solid red; */
-
   div {
     width: 270px;
     padding-left: 2.3rem;
     /* border: 1px solid red; */
-
     span {
       display: inline-block;
       width: 4rem;
@@ -397,7 +388,6 @@ const FormWrapper = styled.div`
   animation: fadeFormWrapperIn 0.7s linear forwards;
   transition-duration: 1s;
   /* border: 1px solid red; */
-
   input,
   textarea {
     &:focus {
@@ -410,12 +400,10 @@ const FormWrapper = styled.div`
     font-size: 1.4rem;
     font-weight: 300;
     border-radius: 3px;
-
     ::placeholder {
       font-size: 1.2rem;
     }
   }
-
   @keyframes fadeFormWrapperIn {
     to {
       opacity: 1;
@@ -434,7 +422,6 @@ const Label = styled.label`
   justify-content: space-between;
   align-items: flex-end;
   /* border: 1px solid red; */
-
   div {
     position: relative;
     top: 100%;
@@ -443,7 +430,6 @@ const Label = styled.label`
     font-size: 1rem;
     animation: slideRequiredUp 0.4s forwards;
   }
-
   @keyframes slideRequiredUp {
     to {
       top: 0;
@@ -502,7 +488,6 @@ const Button = styled.button`
   align-items: center;
   cursor: ${(props) => props.cursor};
   background-color: ${(props) => props.bg};
-
   @media ${device.tablet} {
     margin-bottom: calc(100vh - 38rem);
   }
@@ -546,7 +531,6 @@ const Sent = styled.span`
   animation: ${(props) => props.animation} 1s 1s forwards;
   cursor: text;
   /* border: 1px solid red; */
-
   @keyframes jumpSentUp {
     to {
       top: -18.5rem;
