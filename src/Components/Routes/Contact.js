@@ -67,25 +67,25 @@ const Contact = () => {
         }),
       })
         .then((res) => {
-          if (res.ok) {
-            setLoading(false);
-            setName("");
-            setEmail("");
-            setMessage("");
-            setValName(false);
-            setValEmail(false);
-            setValMessage(false);
-            setSubmitted(true);
-          } else {
-            setLoading(false);
-            setShowError(true);
-            setErrorMessage("Sorry, there was an error in the submit");
-            setActualErr(`Status: ${res.status} ${res.statusText}`);
-            console.log(actualErr);
-            setTimeout(() => {
-              setShowError(false);
-            }, 5000);
-          }
+          // if (res.ok) {
+          setLoading(false);
+          setName("");
+          setEmail("");
+          setMessage("");
+          setValName(false);
+          setValEmail(false);
+          setValMessage(false);
+          setSubmitted(true);
+          // } else {
+          setLoading(false);
+          setShowError(true);
+          setErrorMessage("Sorry, there was an error in the submit");
+          setActualErr(`Status: ${res.status} ${res.statusText}`);
+          console.log(actualErr);
+          setTimeout(() => {
+            setShowError(false);
+          }, 5000);
+          // }
         })
         .catch((err) => {
           console.log(err.message);
@@ -205,9 +205,10 @@ const Contact = () => {
         overflow={submitted ? "visible" : "hidden"}
         color={submitted ? "#30475e" : "#222831"}
         bg={submitted ? "#30475e" : "#f05454"}
-        cursor={loading ? "not-allowed" : "pointer"}
+        cursor={submitted ? "default" : "pointer"}
+        opacity={submitted ? "0" : "1"}
       >
-        <ButtonSpan>Sen</ButtonSpan>
+        <ButtonSpan color={submitted ? "#30475e" : "#ddd"}>Sen</ButtonSpan>
         <LetterWrapper opacity={submitted ? "0" : "1"}>
           <BtnLetter top={submitted ? "18%" : "-200%"}>t</BtnLetter>
           <BtnLetter top={submitted ? "200%" : "18%"}>d</BtnLetter>
@@ -225,7 +226,6 @@ const Contact = () => {
           <Loader />
         </LoaderWrapper>
       ) : null}
-      {showError ? <ErrorComp message={errorMessage} err={actualErr} /> : null}
     </Container>
   );
 };
@@ -510,28 +510,32 @@ const Button = styled.button`
 const ButtonSpan = styled.span`
   position: relative;
   top: 0rem;
-  color: #ddd;
-  /* height: 100%; */
+  color: ${(props) => props.color};
+  cursor: ${(props) => props.cursor};
+  transition-delay: 1.1s;
+  /* border: 1px solid red; */
 `;
 const LetterWrapper = styled.span`
   position: relative;
   top: 0rem;
   width: 1rem;
   height: 100%;
-  color: #ddd;
   display: flex;
   align-items: center;
   overflow: hidden;
+  color: #ddd;
   opacity: ${(props) => props.opacity};
   transition-delay: 1s;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   /* border: 1px solid red; */
 `;
 const BtnLetter = styled.span`
   position: absolute;
   transition-duration: 1s;
   top: ${(props) => props.top};
-  color: ${(props) => props.color};
+  color: #ddd;
+  /* color: ${(props) => props.color}; */
+  /* border: 1px solid red; */
 `;
 const Sent = styled.span`
   position: absolute;
@@ -540,6 +544,7 @@ const Sent = styled.span`
   left: 1.7rem; //to mimic padding of button
   transition-duration: 1s;
   animation: ${(props) => props.animation} 1s 1s forwards;
+  cursor: text;
   /* border: 1px solid red; */
 
   @keyframes jumpSentUp {

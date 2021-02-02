@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { device } from "../../resources/mediaquery";
 
-const BackgroundHeader = ({ text }) => {
+const BackgroundHeader = ({ text, show }) => {
   useEffect(() => {
     // window.addEventListener("scroll", parrallax);
   });
@@ -36,10 +36,10 @@ const Wrapper = styled.div`
     width: 100vw;
     text-align: center;
     font-size: clamp(3rem, 11vw, 8rem);
-    opacity: 0.1;
+    opacity: 0.05;
   }
 
   @media ${device.tabletS} {
-    top: 5rem;
+    top: 7rem;
   }
 `;
