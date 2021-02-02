@@ -8,7 +8,7 @@ const ImageViewer = ({ url, show }) => {
 
   useEffect(() => {
     preloadImg();
-  }, [url]);
+  }, [url, pic]);
 
   // preloading function for images
   const preloadImg = () => {
@@ -16,6 +16,7 @@ const ImageViewer = ({ url, show }) => {
     let preload = document.createElement("img");
     preload.src = url;
     preload.addEventListener("load", () => {
+      setPic(url);
       setLoading(false);
       preload = null;
     });
@@ -31,7 +32,7 @@ const ImageViewer = ({ url, show }) => {
           <Loader />
         </LoaderWrapper>
       ) : (
-        <Img src={url} alt="preview" loading="lazy" />
+        <Img src={pic} alt="preview" loading="lazy" />
       )}
     </ImageWrapper>
   );
