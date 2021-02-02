@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { device } from "../../resources/mediaquery";
 
 const Header = ({ text, invert }) => {
   const [aniName, setaniName] = useState(null);
@@ -11,7 +10,7 @@ const Header = ({ text, invert }) => {
   useEffect(() => {
     setRef(headerItem.current);
 
-    let devObserver = new IntersectionObserver(
+    let devHeaderObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].intersectionRatio > 0) {
           if (ref) {
@@ -21,7 +20,7 @@ const Header = ({ text, invert }) => {
       },
       { rootMargin: "-100px" }
     );
-    devObserver.observe(headerItem.current);
+    devHeaderObserver.observe(headerItem.current);
   }, [aniName, ref]);
 
   return (

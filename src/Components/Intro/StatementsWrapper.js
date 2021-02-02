@@ -21,7 +21,6 @@ const StatementsWrapper = () => {
   const [developerItems] = useState(developerItemsvar);
   const [designerItems] = useState(designerItemsvar);
   const [uxItems] = useState(uxItemsvar);
-
   const [ref, setRef] = useState(null);
   const btn = useRef();
 
